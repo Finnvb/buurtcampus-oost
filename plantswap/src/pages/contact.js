@@ -1,11 +1,12 @@
 import NavBar from "components/NavBar";
 
-function HomePage() {
+function ContactPage() {
   return (
     <>
       <NavBar />
+      <h1>Dit is de ContactPage</h1>
     </>
   );
 }
 
-export default HomePage;
+export default ContactPage;

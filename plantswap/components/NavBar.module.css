@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+
+  background-color: var(--green);
+}
+
+.logo {
+  width: 10rem;
+}
+
+.ulItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
+  width: 40rem;
+}
+
+.ulLink {
+  transition: 0.3s;
+  font-weight: bold;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.ulLink:hover {
+  color: var(--orange);
+  cursor: pointer;
+}
+
+.ulLink::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--orange);
+  margin-top: 0.5rem;
+  transition: 0.3s;
+}
+
+.ulLink:hover::after {
+  width: 100%;
+}

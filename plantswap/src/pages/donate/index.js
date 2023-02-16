@@ -1,11 +1,12 @@
 import NavBar from "components/NavBar";
 
-function HomePage() {
+function DonatePage() {
   return (
     <>
       <NavBar />
+      <h1>Dit is de DonatePage</h1>
     </>
   );
 }
 
-export default HomePage;
+export default DonatePage;
