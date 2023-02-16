@@ -44,3 +44,17 @@
 .ulLink:hover::after {
   width: 100%;
 }
+
+@media (max-width: 40rem) {
+  .ulItems {
+    display: none;
+  }
+
+  .logo {
+    width: 5rem;
+  }
+
+  .container {
+    padding: 1rem 1.5rem;
+  }
+}
