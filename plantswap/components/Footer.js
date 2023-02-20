@@ -37,11 +37,13 @@ function Footer() {
           className={classes.buurtcampusFooter}
         />
         <div>
-          <img
-            src="/buurtcampusoost-logo.svg"
-            alt="buurtcampus-logo"
-            className={classes.buurtcampusLogo}
-          />
+          <Link href="https://www.buurtcampusoost.nl/s/en-US/">
+            <img
+              src="/buurtcampusoost-logo.svg"
+              alt="buurtcampus-logo"
+              className={classes.buurtcampusLogo}
+            />
+          </Link>
         </div>
       </footer>
     </>

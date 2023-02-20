@@ -3,3 +3,23 @@
   height: 500px;
   object-fit: cover;
 }
+
+.bgImage {
+  background-image: url(/hero-image.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgImage h1 {
+  font-size: 3rem;
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 1rem;
+  border-radius: 10px;
+}

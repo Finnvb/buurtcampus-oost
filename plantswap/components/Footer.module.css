@@ -30,6 +30,9 @@
 
 .buurtcampusLogo {
   width: 20rem;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .footer ul {

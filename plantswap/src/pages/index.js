@@ -6,7 +6,9 @@ function HomePage() {
     <>
       <NavBar />
       <main>
-        <img src="/hero-image.jpg" className={classes.backgroundImg} />
+        <div className={classes.bgImage}>
+          <h1>Welkom bij Plantswap</h1>
+        </div>
       </main>
     </>
   );
