@@ -34,7 +34,7 @@ function ContactPage() {
             </p>
           </div>
           <div>
-            <h2>email</h2>
+            <h2>Email</h2>
 
             <a href="mailto:buurtcampusoost@hva.nl">buurtcampusoost@hva.nl</a>
           </div>

@@ -3,6 +3,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  align-items: center;
 }
 
 .header {
