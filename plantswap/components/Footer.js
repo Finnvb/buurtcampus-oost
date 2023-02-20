@@ -32,7 +32,7 @@ function Footer() {
         </section>
 
         <img
-          src="/buurtcampusFooter(1).png"
+          src="/buurtCampusFooter(1).svg"
           alt="buurtcampus-footer"
           className={classes.buurtcampusFooter}
         />
