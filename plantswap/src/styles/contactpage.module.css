@@ -1,0 +1,47 @@
+.container {
+  margin: 2rem 3rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.header {
+  font-size: 3rem;
+  color: var(--blue);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  gap: 2rem;
+}
+
+.map {
+  width: 700px;
+  height: 400px;
+}
+
+@media (max-width: 40rem) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .map {
+    width: 350px;
+    height: 400px;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .flexContainer {
+    width: 20rem;
+  }
+}

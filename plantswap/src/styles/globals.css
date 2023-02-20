@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 :root {
   --green: #214d12;
   --blue: #333568;
   --orange: #f26f20;
   --white: #ffffff;
+  --lightGreen: #4e7141;
 }
 
 * {
@@ -21,4 +22,10 @@ ul {
 
 body {
   background-color: #eef2e6;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--blue);
 }
