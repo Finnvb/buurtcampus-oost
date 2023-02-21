@@ -1,6 +1,6 @@
 import NavBar from "components/NavBar";
 import { gql } from "@apollo/client";
-import client from "../../../../apolloClient";
+import client from "../../../apolloClient";
 
 import Link from "next/link";
 function OverviewPage(stekjes) {
