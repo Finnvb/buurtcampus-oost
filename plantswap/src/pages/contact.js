@@ -39,10 +39,10 @@ function ContactPage() {
             <a href="mailto:buurtcampusoost@hva.nl">buurtcampusoost@hva.nl</a>
           </div>
 
-          {/* <div>
+          <div>
             <h2>Telefoonnummer</h2>
-            <p>020 523 0900</p>
-          </div> */}
+            <p>06 43450198</p>
+          </div>
 
           <div>
             <h2>Samenwerken</h2>
