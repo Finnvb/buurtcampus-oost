@@ -1,0 +1,36 @@
+.plantImg {
+  width: 250px;
+}
+
+.plantContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.plantItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.plantItem p {
+  text-align: center;
+  text-decoration: none;
+}
+
+.header {
+  text-align: center;
+  color: var(--blue);
+  margin: 2.5rem 0;
+  font-size: 3rem;
+}
+
+.link {
+  text-align: center;
+  text-decoration: none;
+  color: var(--black);
+}

@@ -1,22 +1,34 @@
 import NavBar from "components/NavBar";
+import Footer from "components/Footer";
 import { gql } from "@apollo/client";
 import client from "../../../apolloClient";
+import classes from "../../styles/overviewpage.module.css";
 
 import Link from "next/link";
 function OverviewPage(stekjes) {
   console.log(stekjes);
+
   return (
     <>
       <NavBar />
-      <h1>Dit is de OverviewPage</h1>
+      <h1 className={classes.header}>Alle stekjes</h1>
 
-      <ul>
+      <ul className={classes.plantContainer}>
         {stekjes.stekjes.map((stekje, i) => (
-          <li key={i}>
-            <Link href={`overview/${stekje.id}`}>{stekje.naam}</Link>
-          </li>
+          <Link className={classes.link} href={`overview/${stekje.slug}`}>
+            <li key={i} className={classes.plantItem}>
+              <img
+                className={classes.plantImg}
+                src={stekje.fotos[0].url}
+                alt={stekje.fotos.url}
+              />
+              <p>{stekje.naam}</p>
+            </li>
+          </Link>
         ))}
       </ul>
+
+      <Footer />
     </>
   );
 }
@@ -28,12 +40,26 @@ export async function getStaticProps() {
     query: gql`
       query Stekjes {
         stekjes {
-          aanmelddatum
-          createdAt
           id
           naam
-          publishedAt
-          updatedAt
+          fotos {
+            url
+          }
+          stekken {
+            html
+          }
+          temperatuur {
+            html
+          }
+          slug
+          verpotten
+          voeding
+          watergeven {
+            html
+          }
+          zonlicht {
+            html
+          }
         }
       }
     `,
