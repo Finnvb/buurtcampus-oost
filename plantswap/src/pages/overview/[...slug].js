@@ -10,57 +10,57 @@ function PlantDetailPage(stekjes) {
   // return <>{<p>PlantId: {plantId}</p>}</>;
 }
 
-export async function getStaticPaths() {
-  const { data } = await client.query({
-    query: gql`
-      query Stekjes {
-        stekjes {
-          slug
-        }
-      }
-    `,
-  });
-  const { stekjes } = data;
-  // console.log(stekjes);
-  const paths = stekjes.map((stekje) => ({
-    params: { slug: [stekje.slug] },
-  }));
-  console.log(paths);
-  return { paths, fallback: false };
-}
+// export async function getStaticPaths() {
+//   const { data } = await client.query({
+//     query: gql`
+//       query Stekjes {
+//         stekjes {
+//           slug
+//         }
+//       }
+//     `,
+//   });
+//   const { stekjes } = data;
+//   // console.log(stekjes);
+//   const paths = stekjes.map((stekje) => ({
+//     params: { slug: [stekje.slug] },
+//   }));
+//   console.log(paths);
+//   return { paths, fallback: false };
+// }
 
-export async function getStaticProps(params) {
-  // const { slug } = params.slug[0];
-  const { data } = await client.query({
-    query: gql`
-      query Stekjes($slug: slug) {
-        stekjes( where: {slug : {slug}) {
-          id
-          naam
-          stekken {
-            html
-          }
-          temperatuur {
-            html
-          }
-          slug
-          verpotten
-          voeding
-          watergeven {
-            html
-          }
-          zonlicht {
-            html
-          }
-        }
-      }
-    `,
-  });
-  const { stekjes } = data;
-  const stekje = stekjes[0];
-  console.log(stekjes);
+// export async function getStaticProps(params) {
+//   // const { slug } = params.slug[0];
+//   const { data } = await client.query({
+//     query: gql`
+//       query Stekjes($slug: slug) {
+//         stekjes( where: {slug : {slug}) {
+//           id
+//           naam
+//           stekken {
+//             html
+//           }
+//           temperatuur {
+//             html
+//           }
+//           slug
+//           verpotten
+//           voeding
+//           watergeven {
+//             html
+//           }
+//           zonlicht {
+//             html
+//           }
+//         }
+//       }
+//     `,
+//   });
+//   const { stekjes } = data;
+//   const stekje = stekjes[0];
+//   console.log(stekjes);
 
-  return { props: { stekje } };
-}
+//   return { props: { stekje } };
+// }
 
 export default PlantDetailPage;
