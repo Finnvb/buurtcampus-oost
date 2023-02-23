@@ -1,5 +1,11 @@
 .plantImg {
   width: 250px;
+  border-radius: 10px;
+}
+
+.plantImgDetail {
+  width: 400px;
+  border-radius: 10px;
 }
 
 .plantContainer {
@@ -26,11 +32,60 @@
   text-align: center;
   color: var(--blue);
   margin: 2.5rem 0;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .link {
   text-align: center;
   text-decoration: none;
   color: var(--black);
+}
+
+.detailpageContainer {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.paragraph {
+  width: 30rem;
+}
+
+.header {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.plantContent {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
+  gap: 2rem;
+  align-self: flex-start;
+}
+
+.plantContent div p {
+  width: 35rem;
+}
+
+@media (max-width: 40rem) {
+  .detailpageContainer {
+    /* flex-direction: row; */
+  }
+
+  .paragraph {
+    width: 20rem;
+  }
+
+  .plantContent {
+    align-items: center;
+  }
+  .plantContent div p {
+    width: 20rem;
+  }
 }
