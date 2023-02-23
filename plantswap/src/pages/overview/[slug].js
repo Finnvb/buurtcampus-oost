@@ -14,7 +14,7 @@ function PlantDetailPage({ stekje }) {
         alt={stekje.naam}
       />
 
-      <div dangerouslySetInnerHTML={{ __html: stekje.zonlicht.html }}></div>
+      {/* <div dangerouslySetInnerHTML={{ __html: stekje.zonlicht.html }}></div> */}
 
       <Footer />
     </>
