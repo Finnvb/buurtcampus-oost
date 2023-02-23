@@ -63,28 +63,7 @@ function PlantDetailPage({ stekje }) {
               dangerouslySetInnerHTML={{ __html: stekje.watergeven.html }}
             ></div>
           </div>
-          {/* <div>
-            <h2>Temperatuur</h2>
 
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.temperatuur.html }}
-            ></div>
-          </div>
-          <div>
-            <h2>Zonlicht</h2>
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.zonlicht.html }}
-            ></div>
-          </div>
-          <div>
-            <h2>Stekken</h2>
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.stekken.html }}
-            ></div>
-          </div> */}
           <div>
             <h2>Voeding</h2>
             <p>{stekje.voeding}</p>
