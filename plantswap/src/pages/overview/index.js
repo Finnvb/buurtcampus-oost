@@ -1,20 +1,17 @@
+import { GraphQLClient, gql } from "graphql-request";
 import NavBar from "components/NavBar";
 import Footer from "components/Footer";
-import { gql } from "@apollo/client";
-import client from "../../../apolloClient";
 import classes from "../../styles/overviewpage.module.css";
-
 import Link from "next/link";
-function OverviewPage(stekjes) {
-  console.log(stekjes);
 
+function OverviewPage({ stekjes }) {
   return (
     <>
       <NavBar />
       <h1 className={classes.header}>Alle stekjes</h1>
 
       <ul className={classes.plantContainer}>
-        {stekjes.stekjes.map((stekje, i) => (
+        {stekjes.map((stekje, i) => (
           <Link className={classes.link} href={`overview/${stekje.slug}`}>
             <li key={i} className={classes.plantItem}>
               <img
@@ -33,39 +30,31 @@ function OverviewPage(stekjes) {
   );
 }
 
-export default OverviewPage;
+const graphcms = new GraphQLClient(
+  "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbe0wlb32hx401ui0c2yfm49/master"
+);
+
+const QUERY = gql`
+  query {
+    stekjes {
+      naam
+      slug
+      fotos {
+        url
+      }
+    }
+  }
+`;
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query Stekjes {
-        stekjes {
-          id
-          naam
-          fotos {
-            url
-          }
-          stekken {
-            html
-          }
-          temperatuur {
-            html
-          }
-          slug
-          verpotten
-          voeding
-          watergeven {
-            html
-          }
-          zonlicht {
-            html
-          }
-        }
-      }
-    `,
-  });
-  const { stekjes } = data;
+  const { stekjes } = await graphcms.request(QUERY);
+  // console.log(stekjes);
   return {
-    props: { stekjes },
+    props: {
+      stekjes,
+    },
+    revalidate: 30,
   };
 }
+
+export default OverviewPage;
