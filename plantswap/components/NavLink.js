@@ -7,11 +7,11 @@ function LinkItem(props) {
   const animateTo = { opacity: 1, y: 0 };
   return (
     <>
-      <motion.li initial={animateFrom} animate={animateTo}>
-        <Link className={classes.ulLink} href={props.link}>
-          {props.title}
-        </Link>
-      </motion.li>
+      {/* <motion.li initial={animateFrom} animate={animateTo}> */}
+      <Link className={classes.ulLink} href={props.link}>
+        {props.title}
+      </Link>
+      {/* </motion.li> */}
     </>
   );
 }
