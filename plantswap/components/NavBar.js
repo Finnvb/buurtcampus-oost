@@ -1,7 +1,8 @@
 import classes from "./NavBar.module.css";
 import Link from "next/link";
-
+import HamburgerMenu from "components/HamburgerMenu";
 import NavLink from "components/NavLink";
+import NavLinks from "./NavLinks";
 function NavBar() {
   return (
     <>
@@ -14,12 +15,10 @@ function NavBar() {
               alt="plantswap-logo"
             />
           </Link>
-          <ul className={classes.ulItems}>
-            <NavLink title="Onze stekjes" link="/overview" />
-            <NavLink title="Doneren" link="/donate" />
-            <NavLink title="Workshops" link="/workshops" />
-            <NavLink title="Contact" link="/contact" />
-          </ul>
+
+          <NavLinks />
+
+          <HamburgerMenu />
         </nav>
       </header>
     </>
