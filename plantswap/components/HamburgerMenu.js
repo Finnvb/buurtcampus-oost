@@ -1,11 +1,11 @@
 import classes from "./HamburgerMenu.module.css";
 import NavLinks from "./NavLinks";
 import HamburgerMenuNav from "./HamburgerMenuNav";
+import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
 function HamburgerMenu() {
   const [open, setOpen] = useState(false);
 
-  // const closeHamburgerMenu = () => setOpen(false);
   return (
     <>
       <nav className={classes.mobileNav}>
@@ -16,9 +16,7 @@ function HamburgerMenu() {
             console.log(open);
           }}
         >
-          <span />
-          <span />
-          <span />
+          <Hamburger size={40} color="#FFFFFF" rounded />
         </div>
 
         {open && <HamburgerMenuNav />}
