@@ -1,0 +1,108 @@
+.plantImgDetail {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.header {
+  text-align: center;
+  color: var(--blue);
+  margin: 2.5rem 0;
+  font-size: 2rem;
+}
+
+.detailpageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.paragraph {
+  width: 30rem;
+}
+
+.workshopContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  justify-content: space-between;
+  top: 50px;
+  height: 450px;
+  background-color: var(--blue);
+  padding: 2rem;
+
+  border-radius: 10px;
+}
+
+.form h2 {
+  color: var(--white);
+}
+
+.form label {
+  color: var(--white);
+}
+
+.form div {
+  display: flex;
+  gap: 0.2rem;
+  flex-direction: column;
+}
+.form button {
+  background-color: var(--white);
+  padding: 1rem 2rem;
+  width: 200px;
+  align-self: center;
+  color: var(--blue);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.form button:hover {
+  background-color: var(--orange);
+  cursor: pointer;
+  color: var(--white);
+}
+
+.form input {
+  height: 1.5rem;
+  padding-left: 0.5rem;
+
+  border: none;
+}
+
+.form select {
+  height: 1.5rem;
+  font-size: 1rem;
+
+  padding-left: 0.5rem;
+}
+
+.workshopContent h2 {
+  text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .paragraph {
+    width: 20rem;
+  }
+
+  .plantContent {
+    align-items: center;
+  }
+  .plantContent div p {
+    width: 20rem;
+  }
+}
