@@ -12,14 +12,16 @@ function OverviewPage({ stekjes }) {
 
       <ul className={classes.plantContainer}>
         {stekjes.map((stekje, i) => (
-          <li key={i} className={classes.plantItem}>
+          <li key={i}>
             <Link className={classes.link} href={`overview/${stekje.slug}`}>
-              <img
-                className={classes.plantImg}
-                src={stekje.fotos[0].url}
-                alt={stekje.fotos.url}
-              />
-              <p>{stekje.naam}</p>
+              <div className={classes.plantItem}>
+                <img
+                  className={classes.plantImg}
+                  src={stekje.fotos[0].url}
+                  alt={stekje.fotos.url}
+                />
+                <p>{stekje.naam}</p>
+              </div>
             </Link>
           </li>
         ))}

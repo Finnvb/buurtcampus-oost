@@ -20,6 +20,9 @@ ul {
   list-style: none;
 }
 
+li {
+  text-decoration: none;
+}
 body {
   background-color: #eef2e6;
 }

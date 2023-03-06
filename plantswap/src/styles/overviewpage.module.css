@@ -1,6 +1,8 @@
 .plantImg {
   width: 250px;
   border-radius: 10px;
+  position: relative;
+  /* background-color: aqua; */
 }
 
 .plantImgDetail {
@@ -21,11 +23,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  /* background-color: aqua; */
+  position: relative;
 }
 
 .plantItem p {
   text-align: center;
   text-decoration: none;
+  background: rgba(33, 77, 18, 0.6);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0 0px 10px 10px;
+  color: var(--white);
 }
 
 .header {
