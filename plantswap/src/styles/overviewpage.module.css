@@ -2,7 +2,6 @@
   width: 250px;
   border-radius: 10px;
   position: relative;
-  /* background-color: aqua; */
 }
 
 .plantImgDetail {
@@ -16,6 +15,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .plantItem {
@@ -23,7 +23,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background-color: aqua; */
   position: relative;
 }
 
@@ -36,6 +35,10 @@
   width: 100%;
   border-radius: 0 0px 10px 10px;
   color: var(--white);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
@@ -43,6 +46,13 @@
   color: var(--blue);
   margin: 2.5rem 0;
   font-size: 2rem;
+}
+
+.container {
+  gap: 6rem;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
 }
 
 .link {
@@ -53,7 +63,6 @@
 
 .detailpageContainer {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;

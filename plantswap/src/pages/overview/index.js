@@ -7,9 +7,7 @@ import Link from "next/link";
 function OverviewPage({ stekjes }) {
   return (
     <>
-      <NavBar />
-      <h1 className={classes.header}>Alle stekjes</h1>
-
+      <NavBar /> <h1 className={classes.header}>Alle stekjes</h1>
       <ul className={classes.plantContainer}>
         {stekjes.map((stekje, i) => (
           <li key={i}>
@@ -26,7 +24,6 @@ function OverviewPage({ stekjes }) {
           </li>
         ))}
       </ul>
-
       <Footer />
     </>
   );

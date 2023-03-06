@@ -10,6 +10,43 @@
   font-size: 2rem;
 }
 
+.workshopItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.workshopItem p {
+  text-align: center;
+  text-decoration: none;
+  background: rgba(51, 53, 104, 0.6);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0 0px 10px 10px;
+  color: var(--white);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.workshopImg {
+  width: 250px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.workshopContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
 .detailpageContainer {
   display: flex;
   flex-direction: row;
