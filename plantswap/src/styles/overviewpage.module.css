@@ -103,4 +103,12 @@
   .plantContent div p {
     width: 20rem;
   }
+
+  .plantImgDetail {
+    width: 300px;
+  }
+
+  .header {
+    font-size: 1.8rem;
+  }
 }

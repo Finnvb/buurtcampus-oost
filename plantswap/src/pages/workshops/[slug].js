@@ -3,7 +3,59 @@ import classes from "../../styles/workshopspage.module.css";
 import Footer from "components/Footer";
 import NavBar from "components/NavBar";
 
+import { useState } from "react";
+
+import { sendWorkshopForm } from "lib/api";
+
+const initValues = {
+  naam: "",
+  email: "",
+  leeftijd: "",
+  plants: "",
+};
+
+const initState = { isLoading: false, error: "", values: initValues };
+
 function WorkshopDetailPage({ workshop }) {
+  const [state, setState] = useState(initState);
+
+  const { values, isLoading, error } = state;
+
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
+    // await sendWorkshopForm(values);
+    try {
+      await sendWorkshopForm(values);
+      // setTouched({});
+      setState(initState);
+      // toast({
+      //   title: "Message sent.",
+      //   status: "success",
+      //   duration: 2000,
+      //   position: "top",
+      // });
+    } catch (error) {
+      setState((prev) => ({
+        ...prev,
+        isLoading: false,
+        error: error.message,
+      }));
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -35,21 +87,54 @@ function WorkshopDetailPage({ workshop }) {
         </section>
         <form className={classes.form}>
           <h2>Schrijf je in voor deze workshop</h2>
+          {/* <input
+            type="hidden"
+            id="workshopTitle"
+            name="workshopTitle"
+            value={workshop.naam}
+          ></input> */}
+
           <div>
             <label htmlFor="naam">Naam</label>
-            <input id="naam" type="text" required></input>
+            <input
+              id="naam"
+              type="text"
+              name="naam"
+              value={values.naam}
+              required
+              onChange={handleChange}
+            ></input>
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <input id="email" type="email" required></input>
+            <input
+              id="email"
+              type="email"
+              required
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+            ></input>
           </div>
           <div>
             <label htmlFor="leeftijd">Leeftijd</label>
-            <input id="leeftijd" type="number" required></input>
+            <input
+              id="leeftijd"
+              type="number"
+              required
+              name="leeftijd"
+              value={values.leeftijd}
+              onChange={handleChange}
+            ></input>
           </div>
           <div>
             <label>Welke plant zou je willen stekken?</label>
-            <select id="plants" name="plants">
+            <select
+              id="plants"
+              name="plants"
+              value={values.plants}
+              onChange={handleChange}
+            >
               <option value="Spotted Star">Spotted Star</option>
               <option value="Fluweelplant">Fluweelplant</option>
               <option value="Vaderplant">Vaderplant</option>
@@ -57,7 +142,7 @@ function WorkshopDetailPage({ workshop }) {
               <option value="Graslelie">Graslelie</option>
             </select>
           </div>
-          <button type="submit">Inschrijven</button>
+          <button onClick={onSubmit}>Inschrijven</button>
         </form>
       </main>
       <Footer />
