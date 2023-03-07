@@ -16,7 +16,7 @@ const handler = async (req, res) => {
         ...mailOptions,
         subject: "Deelnemen workshop",
         text: "This is a test string",
-        html: `<h1>Workshop stekjes maken</h1><p>Naam:<br>${data.naam}</p><p>email:<br>${data.email}</p><p>leeftijd:<br>${data.leeftijd}</p><p>Workshop die ik wil volgen:<br>${data.workshop}</p>`,
+        html: `<h1>Workshop stekjes maken</h1><p>Naam:<br>${data.naam}</p><p>email:<br>${data.email}</p><p>leeftijd:<br>${data.leeftijd}</p><p>Workshop die ik wil volgen:<br>${data.workshop} </p>`,
       });
     } catch (error) {
       console.log(error);

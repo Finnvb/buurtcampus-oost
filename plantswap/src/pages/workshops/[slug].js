@@ -11,7 +11,7 @@ const initValues = {
   naam: "",
   email: "",
   leeftijd: "",
-  plants: "",
+
   workshop: "",
 };
 
@@ -37,17 +37,10 @@ function WorkshopDetailPage({ workshop }) {
       ...prev,
       isLoading: true,
     }));
-    // await sendWorkshopForm(values);
     try {
       await sendWorkshopForm(values);
-      // setTouched({});
+
       setState(initState);
-      // toast({
-      //   title: "Message sent.",
-      //   status: "success",
-      //   duration: 2000,
-      //   position: "top",
-      // });
     } catch (error) {
       setState((prev) => ({
         ...prev,
@@ -88,12 +81,12 @@ function WorkshopDetailPage({ workshop }) {
         </section>
         <form className={classes.form} onSubmit={onSubmit}>
           <h2>Schrijf je in voor deze workshop</h2>
-          {/* <input
+          <input
             type="hidden"
             id="workshopTitle"
             name="workshopTitle"
             value={workshop.naam}
-          ></input> */}
+          ></input>
 
           <div>
             <label htmlFor="naam">Naam</label>
@@ -129,7 +122,7 @@ function WorkshopDetailPage({ workshop }) {
             ></input>
           </div>
           <div>
-            <label htmlFor="workshop">workshopnaam</label>
+            <label htmlFor="workshop">workshop die ik wil volgen</label>
             <input
               id="workshop"
               type="text"
@@ -139,22 +132,6 @@ function WorkshopDetailPage({ workshop }) {
               onChange={handleChange}
             ></input>
           </div>
-          {/* <div>
-            <label>Welke plant zou je willen stekken?</label>
-            <select
-              id="plants"
-              name="plants"
-              value={values.plants}
-              onChange={handleChange}
-            >
-              <option value="Spotted Star">Spotted Star</option>
-              <option value="Fluweelplant">Fluweelplant</option>
-              <option value="Vaderplant">Vaderplant</option>
-              <option value="Sierasperge">Sierasperge</option>
-              <option value="Graslelie">Graslelie</option>
-            </select>
-          </div> */}
-          {/* onClick={onSubmit} */}
           <button type="submit">Inschrijven</button>
         </form>
       </main>
