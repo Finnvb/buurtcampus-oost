@@ -6,6 +6,7 @@ const handler = async (req, res) => {
     const data = req.body;
 
     console.log(req.body);
+    console.log(req.body);
 
     if (!data.naam || !data.email || !data.leeftijd || !data.workshop) {
       res.status(400).json({ message: "Bad request" });
