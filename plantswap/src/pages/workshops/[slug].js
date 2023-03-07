@@ -12,6 +12,7 @@ const initValues = {
   email: "",
   leeftijd: "",
   plants: "",
+  workshop: "",
 };
 
 const initState = { isLoading: false, error: "", values: initValues };
@@ -128,6 +129,17 @@ function WorkshopDetailPage({ workshop }) {
             ></input>
           </div>
           <div>
+            <label htmlFor="workshop">workshopnaam</label>
+            <input
+              id="workshop"
+              type="text"
+              name="workshop"
+              value={values.workshop}
+              required
+              onChange={handleChange}
+            ></input>
+          </div>
+          {/* <div>
             <label>Welke plant zou je willen stekken?</label>
             <select
               id="plants"
@@ -141,7 +153,7 @@ function WorkshopDetailPage({ workshop }) {
               <option value="Sierasperge">Sierasperge</option>
               <option value="Graslelie">Graslelie</option>
             </select>
-          </div>
+          </div> */}
           <button onClick={onSubmit}>Inschrijven</button>
         </form>
       </main>

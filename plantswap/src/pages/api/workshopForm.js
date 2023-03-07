@@ -7,7 +7,7 @@ const handler = async (req, res) => {
 
     console.log(req.body);
 
-    if (!data.naam || !data.email || !data.leeftijd || !data.plants) {
+    if (!data.naam || !data.email || !data.leeftijd || !data.workshop) {
       res.status(400).json({ message: "Bad request" });
     }
 
@@ -16,7 +16,7 @@ const handler = async (req, res) => {
         ...mailOptions,
         subject: "Deelnemen workshop",
         text: "This is a test string",
-        html: `<h1>Workshop stekjes maken</h1><p>Naam:${data.naam}</p><p>email:${data.email}</p><p>leeftijd:${data.leeftijd}</p><p>plant die ik wil stekken:${data.plants}</p>`,
+        html: `<h1>Workshop stekjes maken</h1><p>Naam:<br>${data.naam}</p><p>email:<br>${data.email}</p><p>leeftijd:<br>${data.leeftijd}</p><p>Workshop die ik wil volgen:<br>${data.workshop}</p>`,
       });
     } catch (error) {
       console.log(error);
