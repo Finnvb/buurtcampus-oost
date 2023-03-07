@@ -36,16 +36,16 @@ function WorkshopDetailPage({ workshop }) {
         <form className={classes.form}>
           <h2>Schrijf je in voor deze workshop</h2>
           <div>
-            <label for="naam">Naam</label>
-            <input id="naam" required></input>
+            <label htmlFor="naam">Naam</label>
+            <input id="naam" type="text" required></input>
           </div>
           <div>
-            <label for="email">Email</label>
-            <input id="email" required></input>
+            <label htmlFor="email">Email</label>
+            <input id="email" type="email" required></input>
           </div>
           <div>
-            <label for="leeftijd">Leeftijd</label>
-            <input id="leeftijd" required></input>
+            <label htmlFor="leeftijd">Leeftijd</label>
+            <input id="leeftijd" type="number" required></input>
           </div>
           <div>
             <label>Welke plant zou je willen stekken?</label>

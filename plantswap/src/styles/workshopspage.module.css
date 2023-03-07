@@ -142,4 +142,13 @@
   .plantContent div p {
     width: 20rem;
   }
+
+  .plantImgDetail {
+    width: 300px;
+  }
+
+  .form {
+    width: 300px;
+    gap: 1rem;
+  }
 }

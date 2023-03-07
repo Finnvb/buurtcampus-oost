@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.9",
+  
     "@next/font": "13.1.6",
     "framer-motion": "^10.0.1",
     "graphql": "^16.6.0",
