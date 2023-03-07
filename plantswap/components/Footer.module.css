@@ -48,6 +48,7 @@
 @media (max-width: 40rem) {
   .buurtcampusLogo {
     width: 15rem;
+    margin-bottom: 20px;
   }
 
   .footer {
@@ -59,10 +60,6 @@
 
   .socials {
     margin-top: 0.5rem;
-  }
-
-  .buurtcampusLogo {
-    margin-bottom: 50px;
   }
 
   .buurtcampusFooter {
