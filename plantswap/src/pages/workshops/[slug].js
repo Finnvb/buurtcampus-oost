@@ -86,7 +86,7 @@ function WorkshopDetailPage({ workshop }) {
             <p>{workshop.kosten}</p>
           </div>
         </section>
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={onSubmit}>
           <h2>Schrijf je in voor deze workshop</h2>
           {/* <input
             type="hidden"
@@ -154,7 +154,8 @@ function WorkshopDetailPage({ workshop }) {
               <option value="Graslelie">Graslelie</option>
             </select>
           </div> */}
-          <button onClick={onSubmit}>Inschrijven</button>
+          {/* onClick={onSubmit} */}
+          <button type="submit">Inschrijven</button>
         </form>
       </main>
       <Footer />
