@@ -2,8 +2,13 @@ import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/overviewpage.module.css";
 import Footer from "components/Footer";
 import NavBar from "components/NavBar";
+import { useState } from "react";
+
+import HamburgerMenuNav from "components/HamburgerMenuNav";
 
 function PlantDetailPage({ stekje }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <NavBar />
@@ -72,6 +77,81 @@ function PlantDetailPage({ stekje }) {
             <h2>Giftig</h2>
             <p>{stekje.giftig}</p>
           </div>
+
+          <section className={classes.formContainer}>
+            <div
+              onClick={() => {
+                setOpen(!open);
+              }}
+              className={classes.button}
+            >
+              Ruilen
+            </div>
+            {open && (
+              <form className={classes.form}>
+                <div>
+                  <label>Geselecteerde plant</label>
+                  <input type="text" value={stekje.naam} readOnly></input>
+
+                  {/* <label>Naam</label>
+                  <input type="text" value={stekje.naam} readOnly></input> */}
+
+                  <div>
+                    <label htmlFor="naam">Naam</label>
+                    <input
+                      id="naam"
+                      type="text"
+                      name="naam"
+                      // value={values.naam}
+                      required
+                      // onChange={handleChange}
+                      placeholder="John Doe"
+                    ></input>
+                  </div>
+                  <div>
+                    <label htmlFor="email">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      required
+                      name="email"
+                      // value={values.email}
+                      // onChange={handleChange}
+                      placeholder="johndoe@gmail.com"
+                    ></input>
+                  </div>
+
+                  <div>
+                    <label htmlFor="ruil">Plant die je wilt inruilen</label>
+                    <input
+                      id="ruil"
+                      type="text"
+                      required
+                      name="ruil"
+                      // value={values.email}
+                      // onChange={handleChange}
+                      placeholder="Scindapsus"
+                    ></input>
+                  </div>
+
+                  <div>
+                    <label htmlFor="datetime">Wanneer kun je langskomen</label>
+                    <input
+                      id="datetime"
+                      type="datetime-local"
+                      required
+                      name="datetime"
+                      // value={values.email}
+                      // onChange={handleChange}
+                      placeholder="Scindapsus"
+                    ></input>
+                  </div>
+
+                  <button type="submit">Reserveren</button>
+                </div>
+              </form>
+            )}
+          </section>
         </section>
       </main>
       <Footer />
