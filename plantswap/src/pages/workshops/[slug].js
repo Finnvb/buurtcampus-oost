@@ -2,7 +2,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/workshopspage.module.css";
 import Footer from "components/Footer";
 import NavBar from "components/NavBar";
-
+import { useEffect } from "react";
 import { useState } from "react";
 
 import { sendWorkshopForm } from "lib/api";
@@ -11,7 +11,6 @@ const initValues = {
   naam: "",
   email: "",
   leeftijd: "",
-
   workshop: "",
 };
 
@@ -19,6 +18,8 @@ const initState = { isLoading: false, error: "", values: initValues };
 
 function WorkshopDetailPage({ workshop }) {
   const [state, setState] = useState(initState);
+
+  const [succes, formSucces] = useState(false);
 
   const { values, isLoading, error } = state;
 
@@ -35,16 +36,24 @@ function WorkshopDetailPage({ workshop }) {
     e.preventDefault();
     setState((prev) => ({
       ...prev,
-      isLoading: true,
     }));
     try {
       await sendWorkshopForm(values);
 
       setState(initState);
+
+      formSucces(true);
+
+      setTimeout(() => {
+        formSucces(false);
+      }, 3000);
+
+      console.log("na 3 sec: " + succes);
     } catch (error) {
+      formSucces(false);
       setState((prev) => ({
         ...prev,
-        isLoading: false,
+
         error: error.message,
       }));
     }
@@ -81,12 +90,6 @@ function WorkshopDetailPage({ workshop }) {
         </section>
         <form className={classes.form} onSubmit={onSubmit}>
           <h2>Schrijf je in voor deze workshop</h2>
-          <input
-            type="hidden"
-            id="workshopTitle"
-            name="workshopTitle"
-            value={workshop.naam}
-          ></input>
 
           <div>
             <label htmlFor="naam">Naam</label>
@@ -97,6 +100,7 @@ function WorkshopDetailPage({ workshop }) {
               value={values.naam}
               required
               onChange={handleChange}
+              placeholder="John Doe"
             ></input>
           </div>
           <div>
@@ -108,6 +112,7 @@ function WorkshopDetailPage({ workshop }) {
               name="email"
               value={values.email}
               onChange={handleChange}
+              placeholder="johndoe@gmail.com"
             ></input>
           </div>
           <div>
@@ -119,6 +124,8 @@ function WorkshopDetailPage({ workshop }) {
               name="leeftijd"
               value={values.leeftijd}
               onChange={handleChange}
+              placeholder="30"
+              min="0"
             ></input>
           </div>
           <div>
@@ -130,9 +137,14 @@ function WorkshopDetailPage({ workshop }) {
               value={values.workshop}
               required
               onChange={handleChange}
+              placeholder="Workshop stekjes maken"
             ></input>
           </div>
+
           <button type="submit">Inschrijven</button>
+          {succes === true && (
+            <div className={classes.formSuccesMsg}>Email verstuurd!</div>
+          )}
         </form>
       </main>
       <Footer />

@@ -13,7 +13,6 @@ function HamburgerMenu() {
           className={classes.container}
           onClick={() => {
             setOpen(!open);
-            console.log(open);
           }}
         >
           <Hamburger size={40} color="#FFFFFF" rounded />
