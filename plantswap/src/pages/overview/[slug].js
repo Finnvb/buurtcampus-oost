@@ -4,10 +4,59 @@ import Footer from "components/Footer";
 import NavBar from "components/NavBar";
 import { useState } from "react";
 
-import HamburgerMenuNav from "components/HamburgerMenuNav";
+import { sendRuilForm } from "lib/api";
+
+const initValues = {
+  naam: "",
+  email: "",
+  inruilPlant: "",
+  datetime: "",
+};
+
+const initState = { isLoading: false, error: "", values: initValues };
 
 function PlantDetailPage({ stekje }) {
   const [open, setOpen] = useState(false);
+
+  const [state, setState] = useState(initState);
+
+  const [succes, formSucces] = useState(false);
+
+  const { values } = state;
+  values.geselecteerdePlant = stekje.naam;
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setState((prev) => ({
+      ...prev,
+    }));
+    try {
+      await sendRuilForm(values);
+
+      setState(initState);
+
+      formSucces(true);
+
+      setTimeout(() => {
+        formSucces(false);
+      }, 3000);
+    } catch (error) {
+      formSucces(false);
+      setState((prev) => ({
+        ...prev,
+
+        error: error.message,
+      }));
+    }
+  };
 
   return (
     <>
@@ -88,13 +137,15 @@ function PlantDetailPage({ stekje }) {
               Ruilen
             </div>
             {open && (
-              <form className={classes.form}>
+              <form className={classes.form} onSubmit={onSubmit}>
                 <div>
                   <label>Geselecteerde plant</label>
-                  <input type="text" value={stekje.naam} readOnly></input>
-
-                  {/* <label>Naam</label>
-                  <input type="text" value={stekje.naam} readOnly></input> */}
+                  <input
+                    type="text"
+                    value={stekje.naam}
+                    name="geselecteerdePlant"
+                    readOnly
+                  ></input>
 
                   <div>
                     <label htmlFor="naam">Naam</label>
@@ -102,9 +153,9 @@ function PlantDetailPage({ stekje }) {
                       id="naam"
                       type="text"
                       name="naam"
-                      // value={values.naam}
+                      value={values.naam}
                       required
-                      // onChange={handleChange}
+                      onChange={handleChange}
                       placeholder="John Doe"
                     ></input>
                   </div>
@@ -115,8 +166,8 @@ function PlantDetailPage({ stekje }) {
                       type="email"
                       required
                       name="email"
-                      // value={values.email}
-                      // onChange={handleChange}
+                      value={values.email}
+                      onChange={handleChange}
                       placeholder="johndoe@gmail.com"
                     ></input>
                   </div>
@@ -127,9 +178,9 @@ function PlantDetailPage({ stekje }) {
                       id="ruil"
                       type="text"
                       required
-                      name="ruil"
-                      // value={values.email}
-                      // onChange={handleChange}
+                      name="inruilPlant"
+                      value={values.inruilPlant}
+                      onChange={handleChange}
                       placeholder="Scindapsus"
                     ></input>
                   </div>
@@ -141,13 +192,18 @@ function PlantDetailPage({ stekje }) {
                       type="datetime-local"
                       required
                       name="datetime"
-                      // value={values.email}
-                      // onChange={handleChange}
+                      value={values.datetime}
+                      onChange={handleChange}
                       placeholder="Scindapsus"
                     ></input>
                   </div>
 
                   <button type="submit">Reserveren</button>
+                  {succes === true && (
+                    <div className={classes.formSuccesMsg}>
+                      Email verstuurd!
+                    </div>
+                  )}
                 </div>
               </form>
             )}

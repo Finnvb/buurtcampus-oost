@@ -2,7 +2,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/workshopspage.module.css";
 import Footer from "components/Footer";
 import NavBar from "components/NavBar";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useState } from "react";
 
 import { sendWorkshopForm } from "lib/api";
@@ -21,7 +21,8 @@ function WorkshopDetailPage({ workshop }) {
 
   const [succes, formSucces] = useState(false);
 
-  const { values, isLoading, error } = state;
+  const { values } = state;
+  values.workshop = workshop.naam;
 
   const handleChange = ({ target }) =>
     setState((prev) => ({
@@ -47,8 +48,6 @@ function WorkshopDetailPage({ workshop }) {
       setTimeout(() => {
         formSucces(false);
       }, 3000);
-
-      console.log("na 3 sec: " + succes);
     } catch (error) {
       formSucces(false);
       setState((prev) => ({
@@ -129,15 +128,16 @@ function WorkshopDetailPage({ workshop }) {
             ></input>
           </div>
           <div>
-            <label htmlFor="workshop">workshop die ik wil volgen</label>
+            {/* <label htmlFor="workshop">workshop die ik wil volgen</label> */}
             <input
               id="workshop"
-              type="text"
+              type="hidden"
               name="workshop"
-              value={values.workshop}
+              value={workshop.naam}
               required
               onChange={handleChange}
-              placeholder="Workshop stekjes maken"
+              // placeholder="Workshop stekjes maken"
+              readOnly
             ></input>
           </div>
 

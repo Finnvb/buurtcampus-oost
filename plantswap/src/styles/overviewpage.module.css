@@ -117,8 +117,9 @@
   /* height: 450px; */
   background-color: var(--blue);
   width: 100%;
-
+  position: relative;
   border-radius: 0px 0px 10px 10px;
+  padding-top: 1rem;
 }
 
 .form h2 {
@@ -135,7 +136,7 @@
   display: flex;
   gap: 0.2rem;
   flex-direction: column;
-  margin: 1rem 0;
+  padding: 1rem 0;
 }
 .form button {
   background-color: var(--white);
@@ -160,6 +161,21 @@
   padding-left: 0.5rem;
   margin: 0 2rem;
   border: none;
+}
+
+.formSuccesMsg {
+  background-color: var(--lightGreen);
+  width: 100%;
+  color: var(--white);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 @media (max-width: 40rem) {
