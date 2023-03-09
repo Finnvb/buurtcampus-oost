@@ -5,6 +5,7 @@ import NavBar from "components/NavBar";
 import { useState } from "react";
 
 import { sendRuilForm } from "lib/api";
+import { delay, motion } from "framer-motion";
 
 const initValues = {
   naam: "",
@@ -13,9 +14,12 @@ const initValues = {
   datetime: "",
 };
 
-const initState = { isLoading: false, error: "", values: initValues };
+const initState = { values: initValues };
 
 function PlantDetailPage({ stekje }) {
+  const animateFrom = { opacity: 0, y: -50 };
+  const animateTo = { opacity: 1, y: 0 };
+
   const [open, setOpen] = useState(false);
 
   const [state, setState] = useState(initState);
@@ -137,7 +141,13 @@ function PlantDetailPage({ stekje }) {
               Ruilen
             </div>
             {open && (
-              <form className={classes.form} onSubmit={onSubmit}>
+              <motion.form
+                className={classes.form}
+                onSubmit={onSubmit}
+                initial={animateFrom}
+                animate={animateTo}
+                transition={{ duration: 0.5 }}
+              >
                 <div>
                   <label>Geselecteerde plant</label>
                   <input
@@ -205,7 +215,7 @@ function PlantDetailPage({ stekje }) {
                     </div>
                   )}
                 </div>
-              </form>
+              </motion.form>
             )}
           </section>
         </section>

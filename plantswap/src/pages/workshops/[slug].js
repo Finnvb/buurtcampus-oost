@@ -14,7 +14,7 @@ const initValues = {
   workshop: "",
 };
 
-const initState = { isLoading: false, error: "", values: initValues };
+const initState = { values: initValues };
 
 function WorkshopDetailPage({ workshop }) {
   const [state, setState] = useState(initState);
@@ -128,15 +128,12 @@ function WorkshopDetailPage({ workshop }) {
             ></input>
           </div>
           <div>
-            {/* <label htmlFor="workshop">workshop die ik wil volgen</label> */}
             <input
               id="workshop"
               type="hidden"
               name="workshop"
               value={workshop.naam}
               required
-              onChange={handleChange}
-              // placeholder="Workshop stekjes maken"
               readOnly
             ></input>
           </div>

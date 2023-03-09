@@ -108,13 +108,10 @@
 }
 
 .form {
-  /* align-self: flex-start; */
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
-
-  /* height: 450px; */
+  z-index: -1;
   background-color: var(--blue);
   width: 100%;
   position: relative;
