@@ -98,13 +98,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 10;
   padding: 2rem;
   cursor: pointer;
 }
 
 .formContainer {
   width: 300px;
+  z-index: 9;
 }
 
 .form {
