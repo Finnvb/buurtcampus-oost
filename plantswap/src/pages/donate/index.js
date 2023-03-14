@@ -149,6 +149,7 @@ export default function DonatePage() {
 
       const data = await response.json();
       console.log(data);
+      console.log(data);
       if (data.success) {
         console.log("yes");
         setSuccess(true);
