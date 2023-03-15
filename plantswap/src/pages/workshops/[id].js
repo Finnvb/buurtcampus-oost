@@ -154,8 +154,8 @@ const graphcms = new GraphQLClient(
 );
 
 const QUERY = gql`
-  query Workshops($slug: String!) {
-    workshop(where: { slug: $slug }) {
+  query Workshops($id: ID!) {
+    workshop(where: { id: $id }) {
       id
       naam
       kosten
@@ -174,7 +174,7 @@ const QUERY = gql`
 const SLUGLIST = gql`
   {
     workshops {
-      slug
+      id
     }
   }
 `;
@@ -182,14 +182,14 @@ const SLUGLIST = gql`
 export async function getStaticPaths() {
   const { workshops } = await graphcms.request(SLUGLIST);
   return {
-    paths: workshops.map((workshop) => ({ params: { slug: workshop.slug } })),
+    paths: workshops.map((workshop) => ({ params: { id: workshop.id } })),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const slug = params.slug;
-  const data = await graphcms.request(QUERY, { slug });
+  const id = params.id;
+  const data = await graphcms.request(QUERY, { id });
   const workshop = data.workshop;
   return {
     props: {

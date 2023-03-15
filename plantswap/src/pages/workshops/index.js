@@ -13,7 +13,7 @@ function WorkshopsPage({ workshops }) {
       <ul className={classes.workshopContainer}>
         {workshops.map((workshop, i) => (
           <li key={i} className={classes.workshopItem}>
-            <Link className={classes.link} href={`workshops/${workshop.slug}`}>
+            <Link className={classes.link} href={`workshops/${workshop.id}`}>
               <div className={classes.workshopItem}>
                 <img
                   className={classes.workshopImg}

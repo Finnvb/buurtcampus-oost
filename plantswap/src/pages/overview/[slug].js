@@ -76,34 +76,21 @@ function PlantDetailPage({ stekje }) {
 
           <div>
             <h2>Temperatuur</h2>
-
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.temperatuur.html }}
-            ></div>
+            <p>{stekje.temperatuur}</p>
           </div>
           <div>
             <h2>Zonlicht</h2>
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.zonlicht.html }}
-            ></div>
+            <p>{stekje.zonlicht}</p>
           </div>
           <div>
             <h2>Stekken</h2>
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.stekken.html }}
-            ></div>
+            <p>{stekje.stekken}</p>
           </div>
         </section>
         <section className={classes.plantContent}>
           <div>
             <h2>Beschrijving</h2>
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.beschrijving.html }}
-            ></div>
+            <p>{stekje.beschrijving}</p>
           </div>
           <div>
             <h2>Land van herkomst</h2>
@@ -116,10 +103,7 @@ function PlantDetailPage({ stekje }) {
 
           <div>
             <h2>Water geven</h2>
-            <div
-              className={classes.paragraph}
-              dangerouslySetInnerHTML={{ __html: stekje.watergeven.html }}
-            ></div>
+            <p>{stekje.watergeven}</p>
           </div>
 
           <div>
@@ -246,21 +230,11 @@ const QUERY = gql`
       fotos {
         url
       }
-      temperatuur {
-        html
-      }
-      zonlicht {
-        html
-      }
-      beschrijving {
-        html
-      }
-      stekken {
-        html
-      }
-      watergeven {
-        html
-      }
+      temperatuur
+      zonlicht
+      beschrijving
+      stekken
+      watergeven
     }
   }
 `;
