@@ -17,3 +17,13 @@ export const sendRuilForm = async (data) =>
     if (!res.ok) throw new Error("Failed to submit form");
     return res.json();
   });
+
+export const sendDoneerForm = async (data) =>
+  fetch("/api/plantdoneerForm", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+  }).then((res) => {
+    if (!res.ok) throw new Error("Failed to submit form");
+    return res.json();
+  });

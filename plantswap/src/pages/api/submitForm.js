@@ -2,18 +2,23 @@ const fetch = require("node-fetch");
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { naam, landvanherkomst, watergeven } = req.body;
+    const { naam, landvanherkomst, watergeven, voeding, giftig, categories } =
+      req.body;
     console.log(req.body);
     const url =
       "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbe0wlb32hx401ui0c2yfm49/master";
 
     const mutation = `   mutation MyMutation {
-        createStekje(data: {naam: "${naam}", slug: "${naam}", landvanherkomst: "${landvanherkomst}", watergeven: "${watergeven}"}) {
+        createStekje(data: {naam: "${naam}", slug: "${naam}", landvanherkomst: "${landvanherkomst}", watergeven: "${watergeven}", voeding: "${voeding}", giftig: "${giftig}", categories: {connect: {id: "${categories}"}}}) {
           id
           naam
           slug
           landvanherkomst
           watergeven
+          giftig
+          categories{id
+            naam
+          }
          
          
         }
@@ -32,6 +37,9 @@ export default async function handler(req, res) {
             naam,
             watergeven,
             landvanherkomst,
+            voeding,
+            giftig,
+            categories,
           },
         }),
       });

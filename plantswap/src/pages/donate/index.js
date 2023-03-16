@@ -1,37 +1,65 @@
 import { useState } from "react";
+import classes from "../../styles/donatepage.module.css";
+import NavBar from "components/NavBar";
+import Footer from "components/Footer";
+import { sendDoneerForm } from "lib/api";
+
+const initValues = {
+  naam: "",
+  email: "",
+  datetime: "",
+  naamplant: "",
+};
+
+const initState = { values: initValues };
 
 export default function DonatePage() {
   const [naam, setName] = useState("");
   const [landvanherkomst, setLandvanherkomst] = useState("");
   const [watergeven, setWatergeven] = useState("");
-  const slug = null;
+  const [voeding, setVoeding] = useState("");
+  const [giftig, setGiftig] = useState("");
+  const [succes, formSucces] = useState(false);
 
+  const [count, setCount] = useState(1);
+  const [state, setState] = useState(initState);
+  const { values } = state;
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+  const slug = null;
+  let categories = "clducg5wd5c8x0bw4b9t4bag5";
+  values.naamplant = naam;
+  function click() {
+    categories = "clducgjm756j20bw59bytl32c";
+  }
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
-
-  // let date = new Date();
-  // console.log(
-  //   `${currentDate.getDate()}/${
-  //     currentDate.getMonth() + 1
-  //   }/${currentDate.getFullYear()}`
-  // );
-
-  // let currentDate = `${date.getDate()}/${
-  //   date.getMonth() + 1
-  // }/${date.getFullYear()}`;
-  // currentDate.toString();
-  // console.log(currentDate);
-
-  // let datee = new Date().toISOString();
-  // console.log(datee); // 6/17/2022
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setState((prev) => ({
+      ...prev,
+    }));
+
     try {
       const response = await fetch("/api/submitForm", {
         method: "POST",
-        body: JSON.stringify({ naam, slug, landvanherkomst, watergeven }),
+        body: JSON.stringify({
+          naam,
+          slug,
+          landvanherkomst,
+          watergeven,
+          voeding,
+          giftig,
+          categories,
+        }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -40,11 +68,15 @@ export default function DonatePage() {
       const data = await response.json();
       console.log(data);
       if (data.success) {
-        // console.log("yes");
         setSuccess(true);
         setError(null);
+        formSucces(true);
+
+        setTimeout(() => {
+          formSucces(false);
+        }, 3000);
       } else {
-        // console.log("no");
+        setSuccess(false);
         setSuccess(false);
         setError(data.error);
       }
@@ -53,72 +85,206 @@ export default function DonatePage() {
       setSuccess(false);
       setError(error.message);
     }
+
+    try {
+      await sendDoneerForm(values);
+
+      setState(initState);
+
+      // formSucces(true);
+
+      // setTimeout(() => {
+      //   formSucces(false);
+      // }, 3000);
+    } catch (error) {
+      formSucces(false);
+      setState((prev) => ({
+        ...prev,
+
+        error: error.message,
+      }));
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="naam">naam:</label>
-      <input
-        type="text"
-        id="naam"
-        name="naam"
-        value={naam}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-        required
-      />
+    <>
+      <NavBar />
+      <h2 className={classes.header}>Doneren</h2>
+      <main className={classes.container}>
+        <section>
+          <p>
+            Heb jij (net als wij) teveel planten in huis? Wij zijn super blij
+            als je stekjes komt doneren. Je kunt ze aanmelden via de app en
+            daarna neerzetten in de PlantSwap kast in de bieb.
+          </p>
+        </section>
 
-      <label htmlFor="landvanherkomst">Land van herkomst:</label>
-      <input
-        type="text"
-        id="landvanherkomst"
-        name="landvanherkomst"
-        value={landvanherkomst}
-        onChange={(e) => {
-          setLandvanherkomst(e.target.value);
-        }}
-        required
-      />
+        <form className={classes.form} onSubmit={handleSubmit}>
+          {count === 1 ? (
+            <>
+              <h2>Contactgegevens</h2>
+              <label>Naam</label>
+              <input
+                id="naam"
+                type="text"
+                name="naam"
+                value={values.naam}
+                required
+                onChange={handleChange}
+                placeholder="John Doe"
+              />
 
-      <label htmlFor="watergeven">
-        Hoeveel keer per maand moet je water geven:
-      </label>
-      <input
-        type="text"
-        id="watergeven"
-        name="watergeven"
-        value={watergeven}
-        onChange={(e) => {
-          setWatergeven(e.target.value);
-        }}
-        required
-      />
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                value={values.email}
+                required
+                onChange={handleChange}
+                placeholder="johndoe@gmail.com"
+              />
 
-      <input
-        id="slug"
-        type="hidden"
-        name="slug"
-        value={naam}
-        required
-        readOnly
-      />
+              <label htmlFor="datetime">Wanneer kun je langskomen</label>
+              <input
+                id="datetime"
+                type="datetime-local"
+                required
+                value={values.datetime}
+                onChange={handleChange}
+                name="datetime"
+              />
 
-      {/* <input
-        id="aanmelddatum"
-        // type="hidden"
-        name="aanmelddatum"
-        value={datee}
-        required
-        readOnly
-      /> */}
+              <input
+                id="naamplant"
+                type="hidden"
+                name="naamplant"
+                value={naam}
+                required
+                onChange={handleChange}
+                // placeholder="John Doe"
+              />
+              <button
+                className={classes.button}
+                type="submit"
+                onClick={() => setCount(count + 1)}
+                disabled={count > 1}
+              >
+                Next
+              </button>
+            </>
+          ) : null}
+          {count === 2 ? (
+            <>
+              <h2>Plantgegevens</h2>
+              <label htmlFor="naam">Naam van plant</label>
+              <input
+                type="text"
+                id="naam"
+                name="naam"
+                value={naam}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                required
+                placeholder="Scindapsus"
+              />
+              <label htmlFor="landvanherkomst">Land van herkomst</label>
+              <input
+                type="text"
+                id="landvanherkomst"
+                name="landvanherkomst"
+                value={landvanherkomst}
+                onChange={(e) => {
+                  setLandvanherkomst(e.target.value);
+                }}
+                required
+                placeholder="Zuidoost-Azië"
+              />
+              <label htmlFor="watergeven">
+                Hoe vaak heeft de plant water nodig
+              </label>
+              <input
+                type="text"
+                id="watergeven"
+                name="watergeven"
+                value={watergeven}
+                onChange={(e) => {
+                  setWatergeven(e.target.value);
+                }}
+                required
+                placeholder="3x per maand"
+              />
 
-      {/* <select name="categories" id="categories">
-        <option value="makkelijk">makkelijk</option>
-        <option value="moeilijk">moeilijk</option>
-      </select> */}
+              <input
+                id="slug"
+                type="hidden"
+                name="slug"
+                value={naam}
+                required
+                readOnly
+              />
+              <label htmlFor="voeding">
+                Heeft de plant plantenvoeding nodig
+              </label>
+              <input
+                type="text"
+                id="voeding"
+                name="voeding"
+                value={voeding}
+                onChange={(e) => {
+                  setVoeding(e.target.value);
+                }}
+                required
+                placeholder="in de zomer elke twee maanden
+                plantenvoeding"
+              />
+              <label htmlFor="giftig">Is de plant giftig voor huisdieren</label>
+              <input
+                type="text"
+                id="giftig"
+                name="giftig"
+                value={giftig}
+                onChange={(e) => {
+                  setGiftig(e.target.value);
+                }}
+                required
+                placeholder="ja, de bladeren zijn giftig voor huisdieren"
+              />
 
-      <button type="submit">Send</button>
-    </form>
+              <label htmlFor="categories">
+                Is de plant makkelijk of moeilijk te onderhouden
+              </label>
+              <select name="categories" id="categories">
+                <option value="makkelijk">Makkelijk</option>
+                <option onClick={click} value="moeilijk">
+                  Moeilijk
+                </option>
+              </select>
+              {succes === true && (
+                <div className={classes.formSuccesMsg}>
+                  Form submitted and being reviewed
+                </div>
+              )}
+              <button className={classes.submitButton} type="submit">
+                Send
+              </button>
+              <button
+                className={classes.button}
+                type="submit"
+                onClick={() => setCount(count - 1)}
+                disabled={count < 2}
+              >
+                Back
+              </button>
+            </>
+          ) : null}
+          <div className={classes.buttonContainer}></div>
+
+          <h3> {count} / 2</h3>
+        </form>
+      </main>
+      <Footer />
+    </>
   );
 }

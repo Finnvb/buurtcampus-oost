@@ -188,7 +188,6 @@ function PlantDetailPage({ stekje }) {
                       name="datetime"
                       value={values.datetime}
                       onChange={handleChange}
-                      placeholder="Scindapsus"
                     ></input>
                   </div>
 
