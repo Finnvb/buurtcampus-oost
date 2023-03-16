@@ -111,6 +111,11 @@ export default function DonatePage() {
       <NavBar />
       <h2 className={classes.header}>Doneren</h2>
       <main className={classes.container}>
+        <img
+          src="plant-donation.jpg"
+          alt="plant-donation"
+          className={classes.plantImg}
+        />
         <section>
           <p>
             Heb jij (net als wij) teveel planten in huis? Wij zijn super blij
