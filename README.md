@@ -18,7 +18,7 @@ wordt er een email verstuurd naar Buurtcampus Oost. Stekjes kun je ophalen bij d
 
 ## Beschrijving
 
-Zie de [https://github.com/Finnvb/buurtcampus-oost/wiki](wiki) voor meer informatie over dit project.
+Zie de [wiki](https://github.com/Finnvb/buurtcampus-oost/wiki) voor meer informatie over dit project.
 
 ![afbeelding](https://user-images.githubusercontent.com/26089533/226295399-b4034b9d-5a0e-46cd-98cd-4fd2f251408d.png)
 
