@@ -24,8 +24,6 @@ wordt er een email verstuurd naar Buurtcampus Oost. Stekjes kun je ophalen bij d
 
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
-Dit project is gemaakt met React, Vite en een API. 
 
 Dit project is gemaakt met React, NextJS en Hygraph als CMS. Hieronder een lijst van alle technieken en tools die gebruikt zijn.
 
