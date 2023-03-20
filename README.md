@@ -60,7 +60,7 @@ npm run dev
 
 ## Bronnen
 
-- [NextSJ](https://vercel.com/docs)
+- [NextJS](https://vercel.com/docs)
 - [React](https://reactjs.org/)
 - [Svgrepo](https://www.svgrepo.com/)
 
