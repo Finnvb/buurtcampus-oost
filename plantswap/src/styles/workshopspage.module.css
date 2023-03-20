@@ -135,17 +135,30 @@
 
 .formSuccesMsg {
   background-color: var(--lightGreen);
-  width: 100%;
   color: var(--white);
-  height: 60px;
+  height: 200px;
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 10px;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  position: fixed;
+  animation: fadeInAnimation ease-in 1s;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 40rem) {
