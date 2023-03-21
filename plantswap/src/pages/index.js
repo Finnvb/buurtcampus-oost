@@ -2,13 +2,15 @@ import SectionItem from "components/SectionItem";
 import Title from "components/Title";
 import classes from "../styles/homepage.module.css";
 import Layout from "components/layout";
+import Image from "next/image";
 
 function HomePage() {
   return (
     <>
       <Layout>
         <main className={classes.container}>
-          <div className={classes.bgImage}>
+          <div className={classes.heroSection}>
+            <Image src="/hero-image.jpg" layout="fill" objectFit="cover" />
             <section>
               <h1>Welkom bij Plantswap</h1>
               <p>
