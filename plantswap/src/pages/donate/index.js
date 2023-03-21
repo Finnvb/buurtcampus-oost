@@ -1,9 +1,7 @@
 import { useState } from "react";
 import classes from "../../styles/donatepage.module.css";
-import NavBar from "components/NavBar";
-import Footer from "components/Footer";
 import { sendDoneerForm } from "lib/api";
-
+import Layout from "components/layout";
 const initValues = {
   naam: "",
   email: "",
@@ -108,188 +106,190 @@ export default function DonatePage() {
 
   return (
     <>
-      <NavBar />
-      <h2 className={classes.header}>Doneren</h2>
-      <main className={classes.container}>
-        <img
-          src="plant-donation.jpg"
-          alt="plant-donation"
-          className={classes.plantImg}
-        />
-        <section>
-          <p>
-            Heb jij (net als wij) teveel planten in huis? Wij zijn super blij
-            als je stekjes komt doneren. Je kunt ze aanmelden via de app en
-            daarna neerzetten in de PlantSwap kast in de bieb.
-          </p>
-        </section>
+      <Layout title="Plantswap donate">
+        <h2 className={classes.header}>Doneren</h2>
+        <main className={classes.container}>
+          <img
+            src="plant-donation.jpg"
+            alt="plant-donation"
+            className={classes.plantImg}
+          />
+          <section>
+            <p>
+              Heb jij (net als wij) teveel planten in huis? Wij zijn super blij
+              als je stekjes komt doneren. Je kunt ze aanmelden via de app en
+              daarna neerzetten in de PlantSwap kast in de bieb.
+            </p>
+          </section>
 
-        <form className={classes.form} onSubmit={handleSubmit}>
-          {count === 1 ? (
-            <>
-              <h2>Contactgegevens</h2>
-              <label>Naam</label>
-              <input
-                id="naam"
-                type="text"
-                name="naam"
-                value={values.naam}
-                required
-                onChange={handleChange}
-                placeholder="John Doe"
-              />
+          <form className={classes.form} onSubmit={handleSubmit}>
+            {count === 1 ? (
+              <>
+                <h2>Contactgegevens</h2>
+                <label>Naam</label>
+                <input
+                  id="naam"
+                  type="text"
+                  name="naam"
+                  value={values.naam}
+                  required
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                />
 
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={values.email}
-                required
-                onChange={handleChange}
-                placeholder="johndoe@gmail.com"
-              />
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={values.email}
+                  required
+                  onChange={handleChange}
+                  placeholder="johndoe@gmail.com"
+                />
 
-              <label htmlFor="datetime">Wanneer kun je langskomen</label>
-              <input
-                id="datetime"
-                type="datetime-local"
-                required
-                value={values.datetime}
-                onChange={handleChange}
-                name="datetime"
-              />
+                <label htmlFor="datetime">Wanneer kun je langskomen</label>
+                <input
+                  id="datetime"
+                  type="datetime-local"
+                  required
+                  value={values.datetime}
+                  onChange={handleChange}
+                  name="datetime"
+                />
 
-              <input
-                id="naamplant"
-                type="hidden"
-                name="naamplant"
-                value={naam}
-                required
-                onChange={handleChange}
-                // placeholder="John Doe"
-              />
-              <button
-                className={classes.button}
-                type="submit"
-                onClick={() => setCount(count + 1)}
-                disabled={count > 1}
-              >
-                Next
-              </button>
-            </>
-          ) : null}
-          {count === 2 ? (
-            <>
-              <h2>Plantgegevens</h2>
-              <label htmlFor="naam">Naam van plant</label>
-              <input
-                type="text"
-                id="naam"
-                name="naam"
-                value={naam}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                required
-                placeholder="Scindapsus"
-              />
-              <label htmlFor="landvanherkomst">Land van herkomst</label>
-              <input
-                type="text"
-                id="landvanherkomst"
-                name="landvanherkomst"
-                value={landvanherkomst}
-                onChange={(e) => {
-                  setLandvanherkomst(e.target.value);
-                }}
-                required
-                placeholder="Zuidoost-Azië"
-              />
-              <label htmlFor="watergeven">
-                Hoe vaak heeft de plant water nodig
-              </label>
-              <input
-                type="text"
-                id="watergeven"
-                name="watergeven"
-                value={watergeven}
-                onChange={(e) => {
-                  setWatergeven(e.target.value);
-                }}
-                required
-                placeholder="3x per maand"
-              />
+                <input
+                  id="naamplant"
+                  type="hidden"
+                  name="naamplant"
+                  value={naam}
+                  required
+                  onChange={handleChange}
+                  // placeholder="John Doe"
+                />
+                <button
+                  className={classes.button}
+                  type="submit"
+                  onClick={() => setCount(count + 1)}
+                  disabled={count > 1}
+                >
+                  Next
+                </button>
+              </>
+            ) : null}
+            {count === 2 ? (
+              <>
+                <h2>Plantgegevens</h2>
+                <label htmlFor="naam">Naam van plant</label>
+                <input
+                  type="text"
+                  id="naam"
+                  name="naam"
+                  value={naam}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                  required
+                  placeholder="Scindapsus"
+                />
+                <label htmlFor="landvanherkomst">Land van herkomst</label>
+                <input
+                  type="text"
+                  id="landvanherkomst"
+                  name="landvanherkomst"
+                  value={landvanherkomst}
+                  onChange={(e) => {
+                    setLandvanherkomst(e.target.value);
+                  }}
+                  required
+                  placeholder="Zuidoost-Azië"
+                />
+                <label htmlFor="watergeven">
+                  Hoe vaak heeft de plant water nodig
+                </label>
+                <input
+                  type="text"
+                  id="watergeven"
+                  name="watergeven"
+                  value={watergeven}
+                  onChange={(e) => {
+                    setWatergeven(e.target.value);
+                  }}
+                  required
+                  placeholder="3x per maand"
+                />
 
-              <input
-                id="slug"
-                type="hidden"
-                name="slug"
-                value={naam}
-                required
-                readOnly
-              />
-              <label htmlFor="voeding">
-                Heeft de plant plantenvoeding nodig
-              </label>
-              <input
-                type="text"
-                id="voeding"
-                name="voeding"
-                value={voeding}
-                onChange={(e) => {
-                  setVoeding(e.target.value);
-                }}
-                required
-                placeholder="in de zomer elke twee maanden
+                <input
+                  id="slug"
+                  type="hidden"
+                  name="slug"
+                  value={naam}
+                  required
+                  readOnly
+                />
+                <label htmlFor="voeding">
+                  Heeft de plant plantenvoeding nodig
+                </label>
+                <input
+                  type="text"
+                  id="voeding"
+                  name="voeding"
+                  value={voeding}
+                  onChange={(e) => {
+                    setVoeding(e.target.value);
+                  }}
+                  required
+                  placeholder="in de zomer elke twee maanden
                 plantenvoeding"
-              />
-              <label htmlFor="giftig">Is de plant giftig voor huisdieren</label>
-              <input
-                type="text"
-                id="giftig"
-                name="giftig"
-                value={giftig}
-                onChange={(e) => {
-                  setGiftig(e.target.value);
-                }}
-                required
-                placeholder="ja, de bladeren zijn giftig voor huisdieren"
-              />
+                />
+                <label htmlFor="giftig">
+                  Is de plant giftig voor huisdieren
+                </label>
+                <input
+                  type="text"
+                  id="giftig"
+                  name="giftig"
+                  value={giftig}
+                  onChange={(e) => {
+                    setGiftig(e.target.value);
+                  }}
+                  required
+                  placeholder="ja, de bladeren zijn giftig voor huisdieren"
+                />
 
-              <label htmlFor="categories">
-                Is de plant makkelijk of moeilijk te onderhouden
-              </label>
-              <select name="categories" id="categories">
-                <option value="makkelijk">Makkelijk</option>
-                <option onClick={click} value="moeilijk">
-                  Moeilijk
-                </option>
-              </select>
-              {succes === true && (
-                <div className={classes.formSuccesMsg}>
-                  Form submitted and being reviewed
-                </div>
-              )}
-              <button className={classes.submitButton} type="submit">
-                Send
-              </button>
-              <button
-                className={classes.button}
-                type="submit"
-                onClick={() => setCount(count - 1)}
-                disabled={count < 2}
-              >
-                Back
-              </button>
-            </>
-          ) : null}
-          <div className={classes.buttonContainer}></div>
+                <label htmlFor="categories">
+                  Is de plant makkelijk of moeilijk te onderhouden
+                </label>
+                <select name="categories" id="categories">
+                  <option value="makkelijk">Makkelijk</option>
+                  <option onClick={click} value="moeilijk">
+                    Moeilijk
+                  </option>
+                </select>
+                {succes === true && (
+                  <div className={classes.formSuccesMsg}>
+                    Form submitted and being reviewed
+                  </div>
+                )}
+                <button className={classes.submitButton} type="submit">
+                  Send
+                </button>
+                <button
+                  className={classes.button}
+                  type="submit"
+                  onClick={() => setCount(count - 1)}
+                  disabled={count < 2}
+                >
+                  Back
+                </button>
+              </>
+            ) : null}
+            <div className={classes.buttonContainer}></div>
 
-          <h3> {count} / 2</h3>
-        </form>
-      </main>
-      <Footer />
+            <h3> {count} / 2</h3>
+          </form>
+        </main>
+      </Layout>
     </>
   );
 }

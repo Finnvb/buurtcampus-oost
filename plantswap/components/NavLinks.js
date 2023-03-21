@@ -6,11 +6,22 @@ function NavLinks() {
   return (
     <>
       <ul className={classes.ulItems}>
-        <NavLink title="Onze stekjes" link="/overview" />
+        <li>
+          <NavLink title="Onze stekjes" link="/overview" />
+        </li>
 
-        <NavLink title="Doneren" link="/donate" />
-        <NavLink title="Workshops" link="/workshops" />
-        <NavLink title="Contact" link="/contact" />
+        <li>
+          {" "}
+          <NavLink title="Doneren" link="/donate" />
+        </li>
+        <li>
+          {" "}
+          <NavLink title="Workshops" link="/workshops" />
+        </li>
+        <li>
+          {" "}
+          <NavLink title="Contact" link="/contact" />
+        </li>
       </ul>
     </>
   );

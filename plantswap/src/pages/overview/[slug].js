@@ -1,7 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/overviewpage.module.css";
-import Footer from "components/Footer";
-import NavBar from "components/NavBar";
+import Layout from "components/layout";
 import { useState } from "react";
 
 import { sendRuilForm } from "lib/api";
@@ -64,146 +63,148 @@ function PlantDetailPage({ stekje }) {
 
   return (
     <>
-      <NavBar />
-      <h1 className={classes.header}>{stekje.naam}</h1>
-      <main className={classes.detailpageContainer}>
-        <section className={classes.plantContent}>
-          <img
-            className={classes.plantImgDetail}
-            src={stekje.fotos[0].url}
-            alt={stekje.naam}
-          />
+      <Layout title={stekje.naam}>
+        <h1 className={classes.header}>{stekje.naam}</h1>
+        <main className={classes.detailpageContainer}>
+          <section className={classes.plantContent}>
+            <img
+              className={classes.plantImgDetail}
+              src={stekje.fotos[0].url}
+              alt={stekje.naam}
+            />
 
-          <div>
-            <h2>Temperatuur</h2>
-            <p>{stekje.temperatuur}</p>
-          </div>
-          <div>
-            <h2>Zonlicht</h2>
-            <p>{stekje.zonlicht}</p>
-          </div>
-          <div>
-            <h2>Stekken</h2>
-            <p>{stekje.stekken}</p>
-          </div>
-        </section>
-        <section className={classes.plantContent}>
-          <div>
-            <h2>Beschrijving</h2>
-            <p>{stekje.beschrijving}</p>
-          </div>
-          <div>
-            <h2>Land van herkomst</h2>
-            <p>{stekje.landvanherkomst}</p>
-          </div>
-          <div>
-            <h2>Moeilijkheidsgraad</h2>
-            <p>{stekje.categories[0].naam}</p>
-          </div>
-
-          <div>
-            <h2>Water geven</h2>
-            <p>{stekje.watergeven}</p>
-          </div>
-
-          <div>
-            <h2>Voeding</h2>
-            <p>{stekje.voeding}</p>
-          </div>
-          <div>
-            <h2>Giftig</h2>
-            <p>{stekje.giftig}</p>
-          </div>
-
-          <section className={classes.formContainer}>
-            <div
-              onClick={() => {
-                setOpen(!open);
-              }}
-              className={classes.button}
-            >
-              Ruilen
+            <div>
+              <h2>Temperatuur</h2>
+              <p>{stekje.temperatuur}</p>
             </div>
-            {open && (
-              <motion.form
-                className={classes.form}
-                onSubmit={onSubmit}
-                initial={animateFrom}
-                animate={animateTo}
-                transition={{ duration: 0.5 }}
-              >
-                <div>
-                  <label>Geselecteerde plant</label>
-                  <input
-                    type="text"
-                    value={stekje.naam}
-                    name="geselecteerdePlant"
-                    readOnly
-                  ></input>
-
-                  <div>
-                    <label htmlFor="naam">Naam</label>
-                    <input
-                      id="naam"
-                      type="text"
-                      name="naam"
-                      value={values.naam}
-                      required
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                    ></input>
-                  </div>
-                  <div>
-                    <label htmlFor="email">Email</label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      name="email"
-                      value={values.email}
-                      onChange={handleChange}
-                      placeholder="johndoe@gmail.com"
-                    ></input>
-                  </div>
-
-                  <div>
-                    <label htmlFor="ruil">Plant die je wilt inruilen</label>
-                    <input
-                      id="ruil"
-                      type="text"
-                      required
-                      name="inruilPlant"
-                      value={values.inruilPlant}
-                      onChange={handleChange}
-                      placeholder="Scindapsus"
-                    ></input>
-                  </div>
-
-                  <div>
-                    <label htmlFor="datetime">Wanneer kun je langskomen</label>
-                    <input
-                      id="datetime"
-                      type="datetime-local"
-                      required
-                      name="datetime"
-                      value={values.datetime}
-                      onChange={handleChange}
-                    ></input>
-                  </div>
-
-                  <button type="submit">Reserveren</button>
-                  {succes === true && (
-                    <div className={classes.formSuccesMsg}>
-                      Email verstuurd!
-                    </div>
-                  )}
-                </div>
-              </motion.form>
-            )}
+            <div>
+              <h2>Zonlicht</h2>
+              <p>{stekje.zonlicht}</p>
+            </div>
+            <div>
+              <h2>Stekken</h2>
+              <p>{stekje.stekken}</p>
+            </div>
           </section>
-        </section>
-      </main>
-      <Footer />
+          <section className={classes.plantContent}>
+            <div>
+              <h2>Beschrijving</h2>
+              <p>{stekje.beschrijving}</p>
+            </div>
+            <div>
+              <h2>Land van herkomst</h2>
+              <p>{stekje.landvanherkomst}</p>
+            </div>
+            <div>
+              <h2>Moeilijkheidsgraad</h2>
+              <p>{stekje.categories[0].naam}</p>
+            </div>
+
+            <div>
+              <h2>Water geven</h2>
+              <p>{stekje.watergeven}</p>
+            </div>
+
+            <div>
+              <h2>Voeding</h2>
+              <p>{stekje.voeding}</p>
+            </div>
+            <div>
+              <h2>Giftig</h2>
+              <p>{stekje.giftig}</p>
+            </div>
+
+            <section className={classes.formContainer}>
+              <div
+                onClick={() => {
+                  setOpen(!open);
+                }}
+                className={classes.button}
+              >
+                Ruilen
+              </div>
+              {open && (
+                <motion.form
+                  className={classes.form}
+                  onSubmit={onSubmit}
+                  initial={animateFrom}
+                  animate={animateTo}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div>
+                    <label>Geselecteerde plant</label>
+                    <input
+                      type="text"
+                      value={stekje.naam}
+                      name="geselecteerdePlant"
+                      readOnly
+                    ></input>
+
+                    <div>
+                      <label htmlFor="naam">Naam</label>
+                      <input
+                        id="naam"
+                        type="text"
+                        name="naam"
+                        value={values.naam}
+                        required
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                      ></input>
+                    </div>
+                    <div>
+                      <label htmlFor="email">Email</label>
+                      <input
+                        id="email"
+                        type="email"
+                        required
+                        name="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        placeholder="johndoe@gmail.com"
+                      ></input>
+                    </div>
+
+                    <div>
+                      <label htmlFor="ruil">Plant die je wilt inruilen</label>
+                      <input
+                        id="ruil"
+                        type="text"
+                        required
+                        name="inruilPlant"
+                        value={values.inruilPlant}
+                        onChange={handleChange}
+                        placeholder="Scindapsus"
+                      ></input>
+                    </div>
+
+                    <div>
+                      <label htmlFor="datetime">
+                        Wanneer kun je langskomen
+                      </label>
+                      <input
+                        id="datetime"
+                        type="datetime-local"
+                        required
+                        name="datetime"
+                        value={values.datetime}
+                        onChange={handleChange}
+                      ></input>
+                    </div>
+
+                    <button type="submit">Reserveren</button>
+                    {succes === true && (
+                      <div className={classes.formSuccesMsg}>
+                        Email verstuurd!
+                      </div>
+                    )}
+                  </div>
+                </motion.form>
+              )}
+            </section>
+          </section>
+        </main>
+      </Layout>
     </>
   );
 }

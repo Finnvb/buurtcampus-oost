@@ -1,30 +1,30 @@
 import { GraphQLClient, gql } from "graphql-request";
-import NavBar from "components/NavBar";
-import Footer from "components/Footer";
+import Layout from "components/layout";
 import classes from "../../styles/overviewpage.module.css";
 import Link from "next/link";
 
 function OverviewPage({ stekjes }) {
   return (
     <>
-      <NavBar /> <h1 className={classes.header}>Alle stekjes</h1>
-      <ul className={classes.plantContainer}>
-        {stekjes.map((stekje, i) => (
-          <li key={i}>
-            <Link className={classes.link} href={`overview/${stekje.slug}`}>
-              <div className={classes.plantItem}>
-                <img
-                  className={classes.plantImg}
-                  src={stekje.fotos[0].url}
-                  alt={stekje.fotos.url}
-                />
-                <p>{stekje.naam}</p>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Footer />
+      <Layout title="Plantswap overview">
+        <h1 className={classes.header}>Alle stekjes</h1>
+        <ul className={classes.plantContainer}>
+          {stekjes.map((stekje, i) => (
+            <li key={i}>
+              <Link className={classes.link} href={`overview/${stekje.slug}`}>
+                <div className={classes.plantItem}>
+                  <img
+                    className={classes.plantImg}
+                    src={stekje.fotos[0].url}
+                    alt={stekje.naam}
+                  />
+                  <p>{stekje.naam}</p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Layout>
     </>
   );
 }
