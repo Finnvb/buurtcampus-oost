@@ -9,6 +9,10 @@ function layout({ children, title = "Plantswap" }) {
           <title>{title}</title>
           <meta charSet="utf-8" />
           <meta
+            name="description"
+            content="Plantswap is a website for trading plants."
+          />
+          <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
