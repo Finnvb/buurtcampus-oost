@@ -15,6 +15,7 @@ function HomePage() {
               fill="fill"
               objectFit="cover"
               alt="Hero-image"
+              loading="eager"
             />
             <section>
               <h1>Welkom bij Plantswap</h1>
