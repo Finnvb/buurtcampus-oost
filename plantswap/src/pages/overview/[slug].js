@@ -12,7 +12,7 @@ const initValues = {
   inruilPlant: "",
   datetime: "",
 };
-
+console.log("test");
 const initState = { values: initValues };
 
 function PlantDetailPage({ stekje }) {
