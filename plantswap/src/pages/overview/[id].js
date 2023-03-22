@@ -12,7 +12,7 @@ const initValues = {
   inruilPlant: "",
   datetime: "",
 };
-console.log("test");
+
 const initState = { values: initValues };
 
 function PlantDetailPage({ stekje }) {
@@ -217,8 +217,8 @@ const graphcms = new GraphQLClient(
 );
 
 const QUERY = gql`
-  query Stekjes($slug: String!) {
-    stekje(where: { slug: $slug }) {
+  query Stekjes($id: ID!) {
+    stekje(where: { id: $id }) {
       id
       naam
       slug
@@ -244,7 +244,7 @@ const QUERY = gql`
 const SLUGLIST = gql`
   {
     stekjes {
-      slug
+      id
     }
   }
 `;
@@ -252,14 +252,14 @@ const SLUGLIST = gql`
 export async function getStaticPaths() {
   const { stekjes } = await graphcms.request(SLUGLIST);
   return {
-    paths: stekjes.map((stekje) => ({ params: { slug: stekje.slug } })),
+    paths: stekjes.map((stekje) => ({ params: { id: stekje.id } })),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const slug = params.slug;
-  const data = await graphcms.request(QUERY, { slug });
+  const id = params.id;
+  const data = await graphcms.request(QUERY, { id });
   const stekje = data.stekje;
   return {
     props: {

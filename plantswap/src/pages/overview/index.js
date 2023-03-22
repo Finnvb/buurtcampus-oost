@@ -12,7 +12,7 @@ function OverviewPage({ stekjes }) {
         <ul className={classes.plantContainer}>
           {stekjes.map((stekje, i) => (
             <li key={i}>
-              <Link className={classes.link} href={`overview/${stekje.slug}`}>
+              <Link className={classes.link} href={`overview/${stekje.id}`}>
                 <div className={classes.plantItem}>
                   <Image
                     className={classes.plantImg}
@@ -42,7 +42,7 @@ const QUERY = gql`
     stekjes {
       naam
       slug
-
+      id
       fotos {
         url
       }
