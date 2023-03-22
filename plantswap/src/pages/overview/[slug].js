@@ -2,7 +2,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/overviewpage.module.css";
 import Layout from "components/layout";
 import { useState } from "react";
-
+import Image from "next/image";
 import { sendRuilForm } from "lib/api";
 import { delay, motion } from "framer-motion";
 
@@ -67,10 +67,12 @@ function PlantDetailPage({ stekje }) {
         <h1 className={classes.header}>{stekje.naam}</h1>
         <main className={classes.detailpageContainer}>
           <section className={classes.plantContent}>
-            <img
+            <Image
               className={classes.plantImgDetail}
               src={stekje.fotos[0].url}
               alt={stekje.naam}
+              width={400}
+              height={550}
             />
 
             <div>

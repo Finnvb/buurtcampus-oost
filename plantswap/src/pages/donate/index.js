@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "../../styles/donatepage.module.css";
 import { sendDoneerForm } from "lib/api";
 import Layout from "components/layout";
+import Image from "next/image";
 const initValues = {
   naam: "",
   email: "",
@@ -109,11 +110,15 @@ export default function DonatePage() {
       <Layout title="Plantswap donate">
         <h2 className={classes.header}>Doneren</h2>
         <main className={classes.container}>
-          <img
-            src="plant-donation.jpg"
+          <Image
+            src="/plant-donation.jpg"
             alt="plant-donation"
             className={classes.plantImg}
+            width={700}
+            height={700}
+            loading="eager"
           />
+
           <section>
             <p>
               Heb jij (net als wij) teveel planten in huis? Wij zijn super blij

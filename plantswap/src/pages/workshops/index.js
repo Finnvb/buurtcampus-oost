@@ -1,6 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
 import Layout from "components/layout";
-
+import Image from "next/image";
 import classes from "../../styles/workshopspage.module.css";
 import Link from "next/link";
 function WorkshopsPage({ workshops }) {
@@ -14,10 +14,12 @@ function WorkshopsPage({ workshops }) {
             <li key={i} className={classes.workshopItem}>
               <Link className={classes.link} href={`workshops/${workshop.id}`}>
                 <div className={classes.workshopItem}>
-                  <img
+                  <Image
                     className={classes.workshopImg}
                     src={workshop.foto[0].url}
                     alt={workshop.naam}
+                    height={300}
+                    width={330}
                   />
                   <p>{workshop.naam}</p>
                 </div>

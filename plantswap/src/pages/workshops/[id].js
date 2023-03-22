@@ -2,7 +2,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/workshopspage.module.css";
 
 import Layout from "components/layout";
-
+import Image from "next/image";
 import { useState } from "react";
 
 import { sendWorkshopForm } from "lib/api";
@@ -64,10 +64,12 @@ function WorkshopDetailPage({ workshop }) {
         <h1 className={classes.header}>{workshop.naam}</h1>
         <main className={classes.detailpageContainer}>
           <section className={classes.workshopContent}>
-            <img
+            <Image
               className={classes.plantImgDetail}
               src={workshop.foto[0].url}
               alt={workshop.naam}
+              width={400}
+              height={550}
             />
 
             <div

@@ -25,7 +25,6 @@ function OverviewPage({ stekjes }) {
                     alt={stekje.naam}
                     width="300"
                     height="330"
-                    objectFit="cover"
                   />
                   <p>{stekje.naam}</p>
                 </div>
