@@ -73,6 +73,7 @@ function PlantDetailPage({ stekje }) {
               alt={stekje.naam}
               width={400}
               height={550}
+              loading="eager"
             />
 
             <div>
