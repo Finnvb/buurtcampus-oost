@@ -1,5 +1,6 @@
 import classes from "./Footer.module.css";
 import Link from "next/link";
+import Image from "next/image";
 function Footer() {
   return (
     <>
@@ -38,10 +39,17 @@ function Footer() {
         />
         <div>
           <Link href="https://www.buurtcampusoost.nl/s/en-US/">
-            <img
+            {/* <img
               src="/buurtcampusoost-logo.svg"
               alt="buurtcampus-logo"
               className={classes.buurtcampusLogo}
+            /> */}
+            <Image
+              className={classes.buurtcampusLogo}
+              src="/buurtcampusoost-logo.svg"
+              alt="buurtcampus-logo"
+              width={320}
+              height={60}
             />
           </Link>
         </div>

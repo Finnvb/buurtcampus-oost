@@ -10,7 +10,12 @@ function HomePage() {
       <Layout>
         <main className={classes.container}>
           <div className={classes.heroSection}>
-            <Image src="/hero-image.jpg" layout="fill" objectFit="cover" />
+            <Image
+              src="/hero-image.jpg"
+              fill="fill"
+              objectFit="cover"
+              alt="Hero-image"
+            />
             <section>
               <h1>Welkom bij Plantswap</h1>
               <p>
@@ -32,7 +37,7 @@ function HomePage() {
                 link="/overview"
                 source="/trade.svg"
                 display="block"
-                height="25rem"
+                // height="25rem"
               >
                 Binnen Plantswap kun je kiezen uit de opties ruilen of doneren.
                 Met de optie ruilen kies je uit onze beschikbare stekjes uit de
@@ -45,7 +50,7 @@ function HomePage() {
                 link="/donate"
                 source="/donate.svg"
                 display="block"
-                height="25rem"
+                // height="25rem"
               >
                 Heb jij (net als wij) teveel planten in huis? Wij zijn super
                 blij als je stekjes komt doneren. Je kunt ze aanmelden via de
@@ -57,7 +62,7 @@ function HomePage() {
                 link="/workshops"
                 source="/workshop.svg"
                 display="block"
-                height="25rem"
+                // height="25rem"
               >
                 De eerste workshop ‘Planten stekken en verzorgen’ zal
                 plaatsvinden in maart 2023 in de OBA Linnaeusstraat, meld je
@@ -75,7 +80,7 @@ function HomePage() {
                 link="/overview"
                 source="/heart.svg"
                 display="none"
-                height="15rem"
+                // height="15rem"
               >
                 Een vitaal persoon heeft een duidelijke wilskracht, beschikt
                 over energie, lichamelijke kracht en weerbaarheid. Wij staan
@@ -88,7 +93,7 @@ function HomePage() {
                 link="/overview"
                 source="/leaf.svg"
                 display="none"
-                height="15rem"
+                // height="15rem"
               >
                 Duurzame ontwikkeling is een ontwikkeling die tegemoetkomt aan
                 de levensbehoeften van de huidige generatie, zonder die van de
@@ -113,10 +118,19 @@ function HomePage() {
           <section>
             <Title titleText="Over Buurtcampus Oost" />
             <div className={classes.section}>
-              <img
+              {/* <img
                 className={classes.buurtcampusImg}
                 src="/buurtcampusOost.avif"
                 alt="buurtcampus"
+              /> */}
+
+              <Image
+                className={classes.buurtcampusImg}
+                src="/buurtcampusOost.avif"
+                alt="buurtcampus"
+                width={1000}
+                height={500}
+                quality={100}
               />
               <div className={classes.overons}>
                 De Buurtcampus Oost heeft als doel Amsterdam-Oost duurzamer,

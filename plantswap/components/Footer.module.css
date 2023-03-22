@@ -29,7 +29,7 @@
 }
 
 .buurtcampusLogo {
-  width: 20rem;
+  /* width: 20rem; */
   background-color: var(--white);
   padding: 1rem;
   border-radius: 10px;
@@ -43,6 +43,7 @@
 }
 .footer ul li img {
   height: 2rem;
+  /* width: auto; */
 }
 
 @media (max-width: 40rem) {
