@@ -32,18 +32,15 @@ function Footer() {
           </ul>
         </section>
 
-        <img
+        <Image
           src="/buurtCampusFooter(1).svg"
           alt="buurtcampus-footer"
           className={classes.buurtcampusFooter}
+          width={100}
+          height={125}
         />
         <div>
           <Link href="https://www.buurtcampusoost.nl/s/en-US/">
-            {/* <img
-              src="/buurtcampusoost-logo.svg"
-              alt="buurtcampus-logo"
-              className={classes.buurtcampusLogo}
-            /> */}
             <Image
               className={classes.buurtcampusLogo}
               src="/buurtcampusoost-logo.svg"

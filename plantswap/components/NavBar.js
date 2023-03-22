@@ -3,16 +3,19 @@ import Link from "next/link";
 import HamburgerMenu from "components/HamburgerMenu";
 import NavLink from "components/NavLink";
 import NavLinks from "./NavLinks";
+import Image from "next/image";
 function NavBar() {
   return (
     <>
       <header>
         <nav className={classes.container}>
           <Link href="/">
-            <img
+            <Image
               className={classes.logo}
               src="/plantswap-logo.png"
               alt="plantswap-logo"
+              width={160}
+              height={90}
             />
           </Link>
 
