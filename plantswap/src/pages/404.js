@@ -1,5 +1,5 @@
 import classes from "../styles/error.module.css";
-import Layout from "components/Layout";
+import Layout from "components/layout";
 function NotFoundPage() {
   return (
     <>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "../../styles/donatepage.module.css";
 import { sendDoneerForm } from "lib/api";
-import Layout from "components/Layout";
+import Layout from "components/layout";
 import Image from "next/image";
 const initValues = {
   naam: "",

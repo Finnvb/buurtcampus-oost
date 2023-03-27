@@ -1,7 +1,7 @@
 import SectionItem from "components/SectionItem";
 import Title from "components/Title";
 import classes from "../styles/homepage.module.css";
-import Layout from "components/Layout";
+import Layout from "components/layout";
 import Image from "next/image";
 import Card from "components/Card";
 function HomePage() {
