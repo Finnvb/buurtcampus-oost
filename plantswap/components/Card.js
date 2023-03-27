@@ -1,6 +1,7 @@
 import classes from "./Card.module.css";
 
 function Card(props) {
+  console.log("test");
   return (
     <div>
       <h3 className={classes.header}>{props.title}</h3>
