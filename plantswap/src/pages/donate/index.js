@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "../../styles/donatepage.module.css";
 import { sendDoneerForm } from "lib/api";
-import Layout from "components/layout";
+import Layout from "components/Layout";
 import Image from "next/image";
 const initValues = {
   naam: "",
@@ -170,7 +170,6 @@ export default function DonatePage() {
                   value={naam}
                   required
                   onChange={handleChange}
-                  // placeholder="John Doe"
                 />
                 <button
                   className={classes.button}

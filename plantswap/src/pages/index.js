@@ -1,9 +1,9 @@
 import SectionItem from "components/SectionItem";
 import Title from "components/Title";
 import classes from "../styles/homepage.module.css";
-import Layout from "components/layout";
+import Layout from "components/Layout";
 import Image from "next/image";
-
+import Card from "components/Card";
 function HomePage() {
   return (
     <>
@@ -18,7 +18,9 @@ function HomePage() {
               loading="eager"
             />
             <section>
-              <h1>Welkom bij Plantswap</h1>
+              <h1>
+                Welkom bij <br /> Plant Swap
+              </h1>
               <p>
                 Heb jij een of meerdere plantenstekjes over en zou je die graag
                 willen ruilen voor een nieuw plantje? Meld je stekje hier aan en
@@ -38,12 +40,12 @@ function HomePage() {
                 link="/overview"
                 source="/trade.svg"
                 display="block"
-                // height="25rem"
+                height="22rem"
               >
                 Binnen Plantswap kun je kiezen uit de opties ruilen of doneren.
-                Met de optie ruilen kies je uit onze beschikbare stekjes uit de
-                stekjeskast, vul je de formulier in en kun je direct je nieuwe
-                stekje ophalen!
+                Met de optie ‘ruilen’ kies je uit onze beschikbare stekjes uit
+                de stekjeskast. Vul het formulier in en kom je stekje bij ons
+                ruilen!
               </SectionItem>
               <SectionItem
                 title="Doneren"
@@ -51,7 +53,7 @@ function HomePage() {
                 link="/donate"
                 source="/donate.svg"
                 display="block"
-                // height="25rem"
+                height="22rem"
               >
                 Heb jij (net als wij) teveel planten in huis? Wij zijn super
                 blij als je stekjes komt doneren. Je kunt ze aanmelden via de
@@ -63,11 +65,11 @@ function HomePage() {
                 link="/workshops"
                 source="/workshop.svg"
                 display="block"
-                // height="25rem"
+                height="22rem"
               >
                 De eerste workshop ‘Planten stekken en verzorgen’ zal
-                plaatsvinden in maart 2023 in de OBA Linnaeusstraat, meld je
-                hier aan voor meer informatie en om op de hoogte te blijven.
+                plaatsvinden in juni 2023 in de OBA Linnaeusstraat, meld je hier
+                aan voor meer informatie en om op de hoogte te blijven.
               </SectionItem>
             </div>
           </section>
@@ -75,56 +77,38 @@ function HomePage() {
           <section>
             <Title titleText="Onze pijlers" />
             <div className={classes.section}>
-              <SectionItem
-                title="Vitaliteit"
-                // linkTitle="Ruilen"
-                link="/overview"
-                source="/heart.svg"
-                display="none"
-                // height="15rem"
-              >
-                Een vitaal persoon heeft een duidelijke wilskracht, beschikt
-                over energie, lichamelijke kracht en weerbaarheid. Wij staan
-                voor vitaliteit!
-              </SectionItem>
+              <Card img="/heart.svg" title="Vitaliteit">
+                Planten verzorgen en in huis hebben is meer dan een hobby met
+                een esthetische functie. Door planten te leren stekken en
+                verzorgen kun je veel leren over hoe planten groeien en hoe de
+                natuur werkt. Planten in huis zorgen voor meer zuurstof in de
+                lucht en hebben een positief effect op je mentaal en emotioneel
+                welzijn. Kleine plantjes, grote voordelen voor je vitaliteit!
+              </Card>
 
-              <SectionItem
-                title="Duurzaamheid"
-                // linkTitle="Ruilen"
-                link="/overview"
-                source="/leaf.svg"
-                display="none"
-                // height="15rem"
-              >
-                Duurzame ontwikkeling is een ontwikkeling die tegemoetkomt aan
-                de levensbehoeften van de huidige generatie, zonder die van de
-                toekomstige generaties tekort te doen.
-              </SectionItem>
-
-              <SectionItem
-                title="Samenwerken"
-                // linkTitle="Ruilen"
-                link="/overview"
-                source="/teamwork.svg"
-                display="none"
-                height="15rem"
-              >
-                Goed samenwerken is van doorslaggevend belang voor het behalen
-                van de gewenste resultaten bij werk waar meerdere personen bij
-                betrokken zijn.
-              </SectionItem>
+              <Card img="/leaf.svg" title="Duurzaamheid">
+                Veel mensen gooien hun dode plant weg omdat ze te weinig kennis
+                over goede verzorging hebben, en kopen een nieuwe die vervolgens
+                ook weer dood gaat om dezelfde reden. Als je weet hoe je een
+                plant goed kunt verzorgen, zal deze gemakkelijk te stekken zijn
+                waardoor je nieuwe plantjes krijgt die je in onze OBA kunt
+                ruilen voor plantjes die je nog niet hebt. Niet alleen veel
+                leuker, maar vooral ook duurzamer en gratis!
+              </Card>
+              <Card img="/teamwork.svg" title="Samenwerken">
+                Bij PlantSwap vinden we het belangrijk dat mensen in de buurt er
+                voor elkaar zijn, en samenwerken om de buurt socialer, vitaler
+                en duurzamer te maken. Het ruilen van stekjes zorgt ervoor dat
+                buurtbewoners elkaar op een laagdrempelige manier bij de OBA
+                kunnen ontmoeten en elkaar leren kennen, waardoor de sociale
+                cohesie in de buurt verbetert.
+              </Card>
             </div>
           </section>
 
           <section>
             <Title titleText="Over Buurtcampus Oost" />
             <div className={classes.section}>
-              {/* <img
-                className={classes.buurtcampusImg}
-                src="/buurtcampusOost.avif"
-                alt="buurtcampus"
-              /> */}
-
               <Image
                 className={classes.buurtcampusImg}
                 src="/buurtcampusOost.avif"

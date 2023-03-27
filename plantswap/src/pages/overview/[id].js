@@ -1,6 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/overviewpage.module.css";
-import Layout from "components/layout";
+import Layout from "components/Layout";
 import { useState } from "react";
 import Image from "next/image";
 import { sendRuilForm } from "lib/api";

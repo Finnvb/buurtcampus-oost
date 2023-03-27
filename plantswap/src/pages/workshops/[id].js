@@ -1,7 +1,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/workshopspage.module.css";
 
-import Layout from "components/layout";
+import Layout from "components/Layout";
 import Image from "next/image";
 import { useState } from "react";
 

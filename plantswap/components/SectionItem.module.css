@@ -1,10 +1,10 @@
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   width: 25rem;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 10px;
   background-color: var(--blue);
 }
@@ -33,11 +33,6 @@
 .link:hover {
   background-color: var(--orange);
   color: var(--white);
-}
-
-.sectionItemImg {
-  /* width: 5rem; */
-  margin: 1rem 0;
 }
 
 @media (max-width: 40rem) {

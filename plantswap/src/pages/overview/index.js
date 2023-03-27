@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from "graphql-request";
-import Layout from "components/layout";
+import Layout from "components/Layout";
 import classes from "../../styles/overviewpage.module.css";
 import Link from "next/link";
 import Image from "next/image";

@@ -1,4 +1,4 @@
-import Layout from "components/layout";
+import Layout from "components/Layout";
 import classes from "../styles/contactpage.module.css";
 
 function ContactPage() {

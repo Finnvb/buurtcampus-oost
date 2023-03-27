@@ -4,17 +4,12 @@ import Image from "next/image";
 function SectionItem(props) {
   return (
     <>
-      <div className={classes.container}>
+      <div style={{ height: `${props.height}` }} className={classes.container}>
         <h3>{props.title}</h3>
         <p>{props.children}</p>
-        {/* <img
-          className={classes.sectionItemImg}
-          src={props.source}
-          alt={props.source}
-        /> */}
 
         <Image
-          className={classes.sectionItemImg}
+          // className={classes.sectionItemImg}
           src={props.source}
           alt={props.source}
           width="80"
