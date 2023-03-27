@@ -1,6 +1,6 @@
 .card {
-  width: 22rem;
-  height: 22rem;
+  width: 19rem;
+  height: 19rem;
   transition: transform 1.2s;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -29,7 +29,6 @@
   background-color: var(--blue);
   color: var(--white);
   padding: 1.5rem;
-  line-height: 1.5rem;
 }
 
 .cardBack {
