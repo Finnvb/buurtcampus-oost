@@ -20,7 +20,7 @@ wordt er een email verstuurd naar Buurtcampus Oost. Stekjes kun je ophalen bij d
 
 Zie de [wiki](https://github.com/Finnvb/buurtcampus-oost/wiki) voor meer informatie over dit project.
 
-![afbeelding](https://user-images.githubusercontent.com/26089533/226917671-f94a0627-94e5-436b-9565-4fddd0aa9df1.png)
+![afbeelding](https://user-images.githubusercontent.com/26089533/228250983-c7faf9e1-4436-4fab-9a41-ca476b079993.png)
 
 [Live versie](https://buurtcampus-oost.vercel.app/)
 
