@@ -11,15 +11,12 @@ function NavLinks() {
         </li>
 
         <li>
-          {" "}
           <NavLink title="Doneren" link="/donate" />
         </li>
         <li>
-          {" "}
           <NavLink title="Workshops" link="/workshops" />
         </li>
         <li>
-          {" "}
           <NavLink title="Contact" link="/contact" />
         </li>
       </ul>

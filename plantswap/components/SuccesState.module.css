@@ -1,0 +1,28 @@
+.formSuccesMsg {
+  background-color: var(--lightGreen);
+  color: var(--white);
+  height: 200px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: fixed;
+  animation: fadeInAnimation ease-in 1s;
+  text-align: center;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "../../styles/donatepage.module.css";
 import { sendDoneerForm } from "lib/api";
 import Layout from "components/layout";
+import SuccesState from "components/SuccesState";
 import Image from "next/image";
 const initValues = {
   naam: "",
@@ -271,10 +272,9 @@ export default function DonatePage() {
                   </option>
                 </select>
                 {succes === true && (
-                  <div className={classes.formSuccesMsg}>
-                    Form submitted and being reviewed
-                  </div>
+                  <SuccesState message="Form submitted and being reviewed" />
                 )}
+
                 <button className={classes.submitButton} type="submit">
                   Send
                 </button>

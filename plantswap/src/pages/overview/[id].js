@@ -1,6 +1,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/overviewpage.module.css";
 import Layout from "components/layout";
+import SuccesState from "components/SuccesState";
 import { useState } from "react";
 import Image from "next/image";
 import { sendRuilForm } from "lib/api";
@@ -197,9 +198,7 @@ function PlantDetailPage({ stekje }) {
 
                     <button type="submit">Reserveren</button>
                     {succes === true && (
-                      <div className={classes.formSuccesMsg}>
-                        Email verstuurd!
-                      </div>
+                      <SuccesState message="Email verstuurd!" />
                     )}
                   </div>
                 </motion.form>

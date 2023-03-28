@@ -1,7 +1,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 import classes from "../../styles/workshopspage.module.css";
-
 import Layout from "components/layout";
+import SuccesState from "components/SuccesState";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -142,9 +142,7 @@ function WorkshopDetailPage({ workshop }) {
             </div>
 
             <button type="submit">Inschrijven</button>
-            {succes === true && (
-              <div className={classes.formSuccesMsg}>Email verstuurd!</div>
-            )}
+            {succes === true && <SuccesState message="Email verstuurd!" />}
           </form>
         </main>
       </Layout>

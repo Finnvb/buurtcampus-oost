@@ -161,21 +161,6 @@
   border: none;
 }
 
-.formSuccesMsg {
-  background-color: var(--lightGreen);
-  width: 100%;
-  color: var(--white);
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 @media (max-width: 40rem) {
   .paragraph {
     width: 20rem;
