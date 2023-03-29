@@ -4,19 +4,31 @@ import classes from "../styles/homepage.module.css";
 import Layout from "components/layout";
 import Image from "next/image";
 import Card from "components/Card";
+import { useState, useEffect } from "react";
+
 function HomePage() {
+  const images = [
+    "/hero-image.jpg",
+    "/plants.jpg",
+    "/cactus.jpg",
+    "/oba-buiten.jpg",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((currentIndex) => (currentIndex + 1) % images.length);
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <>
       <Layout>
         <main className={classes.container}>
-          <div className={classes.heroSection}>
-            <Image
-              src="/hero-image.jpg"
-              fill="fill"
-              objectFit="cover"
-              alt="Hero-image"
-              loading="eager"
-            />
+          <div className={classes.slideshow}>
             <section>
               <h1>
                 Welkom bij <br /> Plant Swap
@@ -29,8 +41,20 @@ function HomePage() {
                 OBA Linnaeusstraat in Amsterdam.
               </p>
             </section>
+            {images.map((image, index) => (
+              <>
+                <Image
+                  key={index}
+                  src={image}
+                  alt={`Slideshow image ${index}`}
+                  className={index === currentIndex ? classes.active : ""}
+                  fill="fill"
+                  objectFit="cover"
+                  loading="eager"
+                />
+              </>
+            ))}
           </div>
-
           <section>
             <Title titleText="Hoe werkt het?" />
             <div className={classes.section}>
