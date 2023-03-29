@@ -2,8 +2,8 @@
 In Buurtcampus Oost zoeken studenten samen met bewoners, professionals, ondernemers, docenten en onderzoekers gezamenlijk naar oplossingen voor kansrijke uitdagingen uit de buurt.
 
 
-# Plantswap 🪴
-Plantswap is een platform waar gebruikers stekjes kunnen ruilen en kunnen doneren. Vanuit een overzicht zie je welke stekjes er beschikbaar zijn en door op een 
+# Plant Swap 🪴
+Plant Swap is een platform waar gebruikers stekjes kunnen ruilen en kunnen doneren. Vanuit een overzicht zie je welke stekjes er beschikbaar zijn en door op een 
 stekje te klikken kun je meer informatie vinden over dat specifiek stekje. Door op ruilen te klikken kun je een formulier invullen met je gegevens en 
 wordt er een email verstuurd naar Buurtcampus Oost. Stekjes kun je ophalen bij de OBA aan de Linnaeusstraat.
 
