@@ -8,22 +8,16 @@
 .container {
   display: flex;
   flex-direction: row;
-  /* gap: 2rem; */
   margin: 3rem;
-  /* width: 100vw; */
   height: 700px;
   justify-content: space-around;
-
   align-items: flex-start;
-  /* align-items: center; */
   position: relative;
 }
 
 .plantImg {
   position: absolute;
-  /* width: 60%; */
-  /* height: 90%; */
-  /* border-radius: 20%; */
+  top: 0;
   width: 700px;
   height: 700px;
   border-radius: 50%;
@@ -33,15 +27,24 @@
 }
 .container section {
   width: 400px;
+  height: 350px;
   background-color: var(--blue);
   color: var(--white);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   align-self: flex-start;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
+  flex-direction: column;
 }
+
+.plantNet {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -112,6 +115,11 @@
 .button {
   background-color: var(--white);
   padding: 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.5rem;
   align-self: center;
   color: var(--blue);
   border: none;
@@ -148,5 +156,18 @@
 
   .plantImg {
     display: none;
+  }
+}
+
+@media (min-width: 40rem) and (max-width: 57rem) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    height: 100%;
+  }
+
+  .container section {
+    align-self: center;
   }
 }

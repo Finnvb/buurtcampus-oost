@@ -4,6 +4,8 @@ import { sendDoneerForm } from "lib/api";
 import Layout from "components/layout";
 import SuccesState from "components/SuccesState";
 import Image from "next/image";
+import Link from "next/link";
+
 const initValues = {
   naam: "",
   email: "",
@@ -90,12 +92,6 @@ export default function DonatePage() {
       await sendDoneerForm(values);
 
       setState(initState);
-
-      // formSucces(true);
-
-      // setTimeout(() => {
-      //   formSucces(false);
-      // }, 3000);
     } catch (error) {
       formSucces(false);
       setState((prev) => ({
@@ -126,6 +122,21 @@ export default function DonatePage() {
               als je stekjes komt doneren. Je kunt ze aanmelden via de app en
               daarna neerzetten in de PlantSwap kast in de bieb.
             </p>
+
+            <p>
+              Weet je niet wat voor plant je hebt? Klik hieronder om erachter te
+              komen.
+            </p>
+
+            <Link href="https://identify.plantnet.org/nl">
+              <Image
+                className={classes.plantNet}
+                src="/plantnet-logo.svg"
+                alt="plantnet"
+                width={200}
+                height={60}
+              />
+            </Link>
           </section>
 
           <form className={classes.form} onSubmit={handleSubmit}>
@@ -179,6 +190,13 @@ export default function DonatePage() {
                   disabled={count > 1}
                 >
                   Next
+                  <Image
+                    src="/arrowRight.svg"
+                    alt="nextArrow"
+                    // className={classes.plantImg}
+                    width={30}
+                    height={20}
+                  />
                 </button>
               </>
             ) : null}
@@ -284,6 +302,13 @@ export default function DonatePage() {
                   onClick={() => setCount(count - 1)}
                   disabled={count < 2}
                 >
+                  <Image
+                    src="/arrowLeft.svg"
+                    alt="backArrow"
+                    // className={classes.plantImg}
+                    width={30}
+                    height={20}
+                  />
                   Back
                 </button>
               </>

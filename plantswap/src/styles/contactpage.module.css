@@ -46,3 +46,17 @@
     width: 20rem;
   }
 }
+
+@media (min-width: 40rem) and (max-width: 78rem) {
+  .map {
+    width: 650px;
+    height: 400px;
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}

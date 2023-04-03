@@ -72,7 +72,7 @@ function PlantDetailPage({ stekje }) {
               className={classes.plantImgDetail}
               src={stekje.fotos[0].url}
               alt={stekje.naam}
-              width={400}
+              width={450}
               height={550}
               loading="eager"
             />

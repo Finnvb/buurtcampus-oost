@@ -9,14 +9,15 @@ function HamburgerMenu() {
   return (
     <>
       <nav className={classes.mobileNav}>
-        <div
+        <button
+          type="button"
           className={classes.container}
           onClick={() => {
             setOpen(!open);
           }}
         >
           <Hamburger size={40} color="#FFFFFF" rounded />
-        </div>
+        </button>
 
         {open && <HamburgerMenuNav />}
       </nav>

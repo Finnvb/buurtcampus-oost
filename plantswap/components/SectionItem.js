@@ -9,7 +9,7 @@ function SectionItem(props) {
         <p>{props.children}</p>
 
         <Image
-          // className={classes.sectionItemImg}
+          className={classes.sectionItemImg}
           src={props.source}
           alt={props.source}
           width="80"

@@ -61,6 +61,7 @@
   padding: 1.5rem;
   border-radius: 10px;
   background-color: var(--blue);
+  margin-bottom: 2rem;
 }
 @media (max-width: 40rem) {
   .heroSection h1 {
@@ -126,4 +127,12 @@
   z-index: 10;
 
   background: rgba(33, 77, 18, 0.75);
+}
+
+@media (max-width: 60rem) {
+  .section {
+    flex-direction: column;
+
+    gap: 2rem;
+  }
 }

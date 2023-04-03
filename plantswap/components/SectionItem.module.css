@@ -41,3 +41,10 @@
     justify-content: space-around;
   }
 }
+
+@media (min-width: 40rem) and (max-width: 80rem) {
+  .container {
+    width: 18rem;
+    justify-content: space-around;
+  }
+}
