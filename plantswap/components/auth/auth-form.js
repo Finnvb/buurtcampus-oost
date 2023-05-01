@@ -47,6 +47,7 @@ function AuthForm() {
         router.replace("/");
       }
       console.log(result);
+      console.log(result);
     } else {
       try {
         const result = await createUser(enteredEmail, enteredPassword);
