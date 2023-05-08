@@ -9,6 +9,23 @@ function OverviewPage({ stekjes }) {
     <>
       <Layout title="Plantswap overview">
         <h1 className={classes.header}>Alle stekjes</h1>
+        <form>
+          <label for="Makkelijk">Makkelijk</label>
+          <input
+            id="Makkelijk"
+            type="radio"
+            value="Makkelijk"
+            name="fav_language"
+          ></input>
+          <label for="Uitdagend">Uitdagend</label>
+          <input
+            id="Uitdagend"
+            type="radio"
+            value="Uitdagend"
+            name="fav_language"
+          ></input>
+        </form>
+        <button>Filter</button>
         <ul className={classes.plantContainer}>
           {stekjes.map((stekje, i) => (
             <li key={i}>
@@ -42,6 +59,9 @@ const QUERY = gql`
     stekjes {
       naam
       slug
+      categories {
+        naam
+      }
       id
       fotos {
         url
@@ -52,7 +72,8 @@ const QUERY = gql`
 
 export async function getStaticProps() {
   const { stekjes } = await graphcms.request(QUERY);
-  // console.log(stekjes);
+  console.log(stekjes);
+
   return {
     props: {
       stekjes,
