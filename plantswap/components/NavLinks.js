@@ -5,10 +5,8 @@ import { useSession, signOut } from "next-auth/react";
 function NavLinks() {
   const { data: session, status } = useSession();
   const loading = status === "loading";
-  if (status === "loading") {
-    return <p>Loading...</p>;
-  }
-  console.log(loading);
+
+  // console.log(loading);
   console.log(session);
 
   function logoutHandler() {

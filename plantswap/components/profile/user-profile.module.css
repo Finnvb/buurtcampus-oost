@@ -4,5 +4,8 @@
 }
 
 .profile h1 {
-  font-size: 5rem;
+  text-align: center;
+  color: var(--blue);
+  margin: 2.5rem 0;
+  font-size: 2rem;
 }
