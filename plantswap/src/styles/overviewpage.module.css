@@ -177,4 +177,49 @@
   .header {
     font-size: 1.8rem;
   }
+
+  .buttonsContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.category {
+  color: #64748b;
+  font-size: 10px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem;
+}
+.categoryBtn {
+  border: 1px solid var(--green);
+  background: transparent;
+  margin: 0.5rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.searchBar {
+  border: 1px solid #000;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.categoryBtn:hover {
+  /* box-shadow: 3px 3px 0px 0px rgba(0, 0, 0); */
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.active {
+  background: var(--green);
+  color: var(--white);
 }
