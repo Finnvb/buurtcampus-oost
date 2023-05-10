@@ -25,7 +25,7 @@
   position: relative;
 }
 
-.plantItem p {
+.plantName {
   text-align: center;
   text-decoration: none;
   background: rgba(33, 77, 18, 0.6);
@@ -186,8 +186,15 @@
 }
 
 .category {
-  color: #64748b;
-  font-size: 10px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  text-decoration: none;
+  background: rgba(33, 77, 18, 0.6);
+  color: var(--white);
+  border-radius: 10px 0 10px 0;
 }
 
 .buttonsContainer {
