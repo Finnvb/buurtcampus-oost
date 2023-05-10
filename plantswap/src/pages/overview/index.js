@@ -70,13 +70,13 @@ function OverviewPage({ stekjes }) {
           <div className="items-container">
             <ul className={classes.plantContainer}>
               {filteredItems
-                .filter((value) => {
+                .filter((item) => {
                   if (searchTerm == "") {
-                    return value;
+                    return item;
                   } else if (
-                    value.naam.toLowerCase().includes(searchTerm.toLowerCase())
+                    item.naam.toLowerCase().includes(searchTerm.toLowerCase())
                   ) {
-                    return value;
+                    return item;
                   }
                 })
                 .map((item, i) => (
@@ -90,7 +90,11 @@ function OverviewPage({ stekjes }) {
                           width="300"
                           height="330"
                         />
-                        <p>{item.naam}</p>
+
+                        <p className={classes.plantName}>{item.naam}</p>
+                        <p className={classes.category}>
+                          {item.categories[0].naam}
+                        </p>
                       </div>
                     </Link>
                   </li>
@@ -98,44 +102,6 @@ function OverviewPage({ stekjes }) {
             </ul>
           </div>
         </div>
-
-        {/* <input
-          type="text"
-          placeholder="Search.."
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
-        ></input> */}
-
-        {/* <ul className={classes.plantContainer}>
-          {stekjes
-            .filter((value) => {
-              if (searchTerm == "") {
-                return value;
-              } else if (
-                value.naam.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return value;
-              }
-            })
-            .map((stekje, i) => (
-              <li key={i}>
-                <Link className={classes.link} href={`overview/${stekje.id}`}>
-                  <div className={classes.plantItem}>
-                    <Image
-                      className={classes.plantImg}
-                      src={stekje.fotos[0].url}
-                      alt={stekje.naam}
-                      width="300"
-                      height="330"
-                    />
-
-                    <p>{stekje.naam}</p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-        </ul> */}
       </Layout>
     </>
   );
