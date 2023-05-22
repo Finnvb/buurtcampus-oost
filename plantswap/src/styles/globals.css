@@ -36,3 +36,53 @@ h2 {
 p {
   line-height: 1.3;
 }
+
+/* DarkMode */
+
+.dark {
+  background-color: #051204;
+  color: white;
+}
+
+.dark h1 {
+  color: white;
+}
+
+.dark h2 {
+  color: white;
+}
+
+.dark h3 {
+  color: white;
+}
+
+.dark button {
+  color: var(--orange);
+}
+
+.dark form {
+  background-color: #0e350c;
+}
+
+.dark input {
+  background-color: #051204;
+  color: white;
+  border: 1px solid var(--green);
+}
+
+.dark header {
+  background-color: #0e350c;
+}
+
+.dark select {
+  background-color: #051204;
+  color: white;
+}
+
+.dark footer {
+  background-color: #0e350c;
+}
+
+.dark nav {
+  background-color: #0e350c;
+}

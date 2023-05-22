@@ -60,3 +60,12 @@
     gap: 2rem;
   }
 }
+
+.dark {
+  background-color: #020404;
+  color: white;
+}
+
+.dark .header {
+  color: white;
+}
