@@ -4,9 +4,9 @@ import classes from "../../styles/overviewpage.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+
 function OverviewPage({ stekjes }) {
   const [searchTerm, setSearchTerm] = useState("");
-
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(stekjes);
 
@@ -46,13 +46,13 @@ function OverviewPage({ stekjes }) {
 
         <div>
           <div className={classes.buttonsContainer}>
-            {filters.map((category, idx) => (
+            {filters.map((category, i) => (
               <button
                 onClick={() => handleFilterButtonClick(category)}
                 className={`${classes.categoryBtn} ${
                   selectedFilters?.includes(category) ? `${classes.active}` : ""
                 }`}
-                key={`filters-${idx}`}
+                key={`filters-${i}`}
               >
                 {category}
               </button>

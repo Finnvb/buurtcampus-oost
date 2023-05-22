@@ -23,6 +23,7 @@ async function createUser(email, password) {
 }
 
 function AuthForm() {
+  const [fail, loginFail] = useState(false);
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
@@ -47,14 +48,18 @@ function AuthForm() {
         router.replace("/");
       }
       console.log(result);
-      console.log(result);
+      // console.log(result);
     } else {
       try {
         const result = await createUser(enteredEmail, enteredPassword);
         console.log(result);
       } catch (error) {
         console.log(error);
+        loginFail(true);
       }
+      setTimeout(() => {
+        loginFail(false);
+      }, 3000);
     }
   }
 
@@ -75,8 +80,10 @@ function AuthForm() {
             ref={passwordInputRef}
           />
         </div>
+
         <div className={classes.actions}>
           <button>{isLogin ? "Login" : "Create Account"}</button>
+
           <button
             type="button"
             className={classes.toggle}
@@ -86,6 +93,9 @@ function AuthForm() {
           </button>
         </div>
       </form>
+      {fail === true && (
+        <div className={classes.failState}>Account exists already</div>
+      )}
     </section>
   );
 }
