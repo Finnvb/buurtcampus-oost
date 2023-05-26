@@ -45,18 +45,25 @@ function OverviewPage({ stekjes }) {
         <h1 className={classes.header}>Alle stekjes</h1>
 
         <div>
-          <div className={classes.buttonsContainer}>
-            {filters.map((category, idx) => (
-              <button
-                onClick={() => handleFilterButtonClick(category)}
-                className={`${classes.categoryBtn} ${
-                  selectedFilters?.includes(category) ? `${classes.active}` : ""
-                }`}
-                key={`filters-${idx}`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className={classes.filterContainer}>
+            <div className={classes.btnContainer}>
+              <p>Moeilijkheidsgraad</p>
+              <div>
+                {filters.map((category, idx) => (
+                  <button
+                    onClick={() => handleFilterButtonClick(category)}
+                    className={`${classes.categoryBtn} ${
+                      selectedFilters?.includes(category)
+                        ? `${classes.active}`
+                        : ""
+                    }`}
+                    key={`filters-${idx}`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
             <input
               className={classes.searchBar}
               type="text"
