@@ -1,17 +1,22 @@
 import classes from "./NavBar.module.css";
 import Link from "next/link";
-import { motion } from "framer-motion";
-
+import { useRouter } from "next/router";
 function LinkItem(props) {
-  const animateFrom = { opacity: 0, y: -60 };
-  const animateTo = { opacity: 1, y: 0 };
+  const router = useRouter();
+
   return (
     <>
-      {/* <motion.li initial={animateFrom} animate={animateTo}> */}
-      <Link className={classes.ulLink} href={props.link}>
-        {props.title}
+      <Link legacyBehavior href={props.link}>
+        <a
+          className={
+            router.pathname == props.link
+              ? classes.ulLinkActive
+              : classes.ulLink
+          }
+        >
+          {props.title}
+        </a>
       </Link>
-      {/* </motion.li> */}
     </>
   );
 }

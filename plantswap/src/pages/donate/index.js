@@ -105,7 +105,8 @@ export default function DonatePage() {
   return (
     <>
       <Layout title="Plantswap donate">
-        <h2 className={classes.header}>Doneren</h2>
+        <h2 className={classes.header}>Doneren </h2>
+
         <main className={classes.container}>
           <Image
             src="/plant-donation.jpg"
@@ -120,7 +121,8 @@ export default function DonatePage() {
             <p>
               Heb jij (net als wij) teveel planten in huis? Wij zijn super blij
               als je stekjes komt doneren. Je kunt ze aanmelden via de app en
-              daarna neerzetten in de PlantSwap kast in de bieb.
+              daarna neerzetten in de PlantSwap kast in de bieb. Vul het
+              formulier in om een plant te doneren.
             </p>
 
             <p>

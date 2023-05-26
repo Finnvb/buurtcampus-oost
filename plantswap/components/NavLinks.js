@@ -16,7 +16,7 @@ function NavLinks() {
     <>
       <ul className={classes.ulItems}>
         <li>
-          <NavLink title="Onze stekjes" link="/overview" />
+          <NavLink title="Alle stekjes" link="/overview" />
         </li>
 
         <li>

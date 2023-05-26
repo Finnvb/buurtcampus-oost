@@ -160,31 +160,6 @@
   border-radius: 4px;
 }
 
-@media (max-width: 40rem) {
-  .paragraph {
-    width: 20rem;
-  }
-
-  .plantContent div p {
-    width: 20rem;
-  }
-
-  .plantImgDetail {
-    width: 300px;
-    height: 400px;
-  }
-
-  .header {
-    font-size: 1.8rem;
-  }
-
-  .buttonsContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 .category {
   font-size: 0.8rem;
   position: absolute;
@@ -197,12 +172,26 @@
   border-radius: 10px 0 10px 0;
 }
 
-.buttonsContainer {
+.filterContainer {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   gap: 1rem;
   margin: 2rem;
 }
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnContainer p {
+  color: var(--green);
+  font-weight: bold;
+}
+
 .categoryBtn {
   border: 1px solid var(--green);
   background: transparent;
@@ -221,7 +210,6 @@
 }
 
 .categoryBtn:hover {
-  /* box-shadow: 3px 3px 0px 0px rgba(0, 0, 0); */
   background-color: var(--green);
   color: var(--white);
 }
@@ -229,4 +217,29 @@
 .active {
   background: var(--green);
   color: var(--white);
+}
+
+@media (max-width: 40rem) {
+  .paragraph {
+    width: 20rem;
+  }
+
+  .plantContent div p {
+    width: 20rem;
+  }
+
+  .plantImgDetail {
+    width: 300px;
+    height: 400px;
+  }
+
+  .header {
+    font-size: 1.8rem;
+  }
+
+  .filterContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
