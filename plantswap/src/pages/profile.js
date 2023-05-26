@@ -3,9 +3,11 @@ import UserProfile from "/components/profile/user-profile";
 import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import classes from "../styles/profilepage.module.css";
-
+import { useSession } from "next-auth/react";
 function ProfilePage() {
   const [darkMode, setDarkMode] = useState(false);
+
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     themeCheck();
@@ -42,7 +44,7 @@ function ProfilePage() {
     <Layout>
       <UserProfile />
 
-      <div className={classes.container}>
+      <section className={classes.container}>
         <div className={classes.themeContainer}>
           <h2>Theme</h2>
 
@@ -61,8 +63,10 @@ function ProfilePage() {
         </div>
         <div>
           <h2>User info</h2>
+          <h3>Email</h3>
+          <p>{session.user.email} </p>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 }

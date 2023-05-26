@@ -61,3 +61,15 @@
 .darkModeInput {
   display: none;
 }
+
+.container div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container div:last-child h3 {
+  color: var(--blue);
+  font-size: 1rem;
+}
