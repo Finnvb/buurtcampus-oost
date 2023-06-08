@@ -74,40 +74,38 @@ function OverviewPage({ stekjes }) {
             ></input>
           </div>
 
-          <div className="items-container">
-            <ul className={classes.plantContainer}>
-              {filteredItems
-                .filter((item) => {
-                  if (searchTerm == "") {
-                    return item;
-                  } else if (
-                    item.naam.toLowerCase().includes(searchTerm.toLowerCase())
-                  ) {
-                    return item;
-                  }
-                })
-                .map((item, i) => (
-                  <li key={`items-${i}`}>
-                    <Link className={classes.link} href={`overview/${item.id}`}>
-                      <div className={classes.plantItem}>
-                        <Image
-                          className={classes.plantImg}
-                          src={item.fotos[0].url}
-                          alt={item.naam}
-                          width="300"
-                          height="330"
-                        />
+          <ul className={classes.plantContainer}>
+            {filteredItems
+              .filter((item) => {
+                if (searchTerm == "") {
+                  return item;
+                } else if (
+                  item.naam.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return item;
+                }
+              })
+              .map((item, i) => (
+                <li key={`items-${i}`}>
+                  <Link className={classes.link} href={`overview/${item.id}`}>
+                    <div className={classes.plantItem}>
+                      <Image
+                        className={classes.plantImg}
+                        src={item.fotos[0].url}
+                        alt={item.naam}
+                        width="300"
+                        height="330"
+                      />
 
-                        <p className={classes.plantName}>{item.naam}</p>
-                        <p className={classes.category}>
-                          {item.categories[0].naam}
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </div>
+                      <p className={classes.plantName}>{item.naam}</p>
+                      <p className={classes.category}>
+                        {item.categories[0].naam}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </div>
       </Layout>
     </>
