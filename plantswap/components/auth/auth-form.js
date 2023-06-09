@@ -16,7 +16,11 @@ async function createUser(email, password) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Something went wrong");
+    if (data.message === "User already exists") {
+      throw new Error("User already exists");
+    } else {
+      throw new Error(data.message || "Something went wrong");
+    }
   }
 
   return data;
@@ -27,6 +31,8 @@ function AuthForm() {
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
   const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState("");
+
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
   }
@@ -45,6 +51,11 @@ function AuthForm() {
 
       if (!result.error) {
         router.replace("/");
+      } else {
+        setErrorMessage(result.error);
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 2000);
       }
 
       console.log(result);
@@ -52,8 +63,15 @@ function AuthForm() {
       try {
         const result = await createUser(enteredEmail, enteredPassword);
         console.log(result);
+        setErrorMessage(result.message);
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 2000);
       } catch (error) {
-        console.log(error);
+        setErrorMessage(error.message);
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 2000);
       }
     }
   }
@@ -62,6 +80,7 @@ function AuthForm() {
     <>
       <form className={classes.auth} onSubmit={submitHandler}>
         <h1>{isLogin ? "Login" : "Sign Up"}</h1>
+        {errorMessage && <div className={classes.error}>{errorMessage}</div>}
         <div className={classes.control}>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" required ref={emailInputRef} />
