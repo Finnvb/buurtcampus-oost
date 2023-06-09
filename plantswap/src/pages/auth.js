@@ -23,7 +23,7 @@ function AuthPage() {
   }
   return (
     <Layout>
-      <AuthForm />;
+      <AuthForm />
     </Layout>
   );
 }

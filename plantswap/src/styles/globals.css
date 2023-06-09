@@ -6,6 +6,7 @@
   --orange: #f26f20;
   --white: #ffffff;
   --lightGreen: #4e7141;
+  --darkGreen: #0e350c;
 }
 
 * {
@@ -25,6 +26,10 @@ li {
 }
 body {
   background-color: #eef2e6;
+}
+
+.profileHeader {
+  color: var(--white);
 }
 
 h2 {
@@ -56,22 +61,22 @@ p {
   color: white;
 }
 
-.dark button {
-  color: var(--orange);
-}
+/* .dark button {
+  color: var(--white);
+} */
 
 .dark form {
-  background-color: #0e350c;
+  background-color: var(--darkGreen);
 }
 
 .dark input {
   background-color: #051204;
   color: white;
-  border: 1px solid var(--green);
+  border: 1px solid var(--darkGreen);
 }
 
 .dark header {
-  background-color: #0e350c;
+  background-color: var(--darkGreen);
 }
 
 .dark select {
@@ -80,9 +85,17 @@ p {
 }
 
 .dark footer {
-  background-color: #0e350c;
+  background-color: var(--darkGreen);
 }
 
 .dark nav {
-  background-color: #0e350c;
+  background-color: var(--darkGreen);
+}
+
+.dark p {
+  color: var(--white);
+}
+
+.dark article {
+  background-color: var(--darkGreen);
 }

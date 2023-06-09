@@ -12,6 +12,7 @@
   align-items: center;
   flex-direction: column;
   gap: 3rem;
+  margin-bottom: 8rem;
 }
 
 .darkMode {

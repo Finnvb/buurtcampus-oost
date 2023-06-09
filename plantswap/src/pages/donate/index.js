@@ -117,7 +117,7 @@ export default function DonatePage() {
             loading="eager"
           />
 
-          <section>
+          <article className={classes.article}>
             <p>
               Heb jij (net als wij) teveel planten in huis? Wij zijn super blij
               als je stekjes komt doneren. Je kunt ze aanmelden via de app en
@@ -139,7 +139,7 @@ export default function DonatePage() {
                 height={60}
               />
             </Link>
-          </section>
+          </article>
 
           <form className={classes.form} onSubmit={handleSubmit}>
             {count === 1 ? (

@@ -141,7 +141,7 @@ function HomePage() {
                 height={500}
                 quality={100}
               />
-              <div className={classes.overons}>
+              <article className={classes.overons}>
                 De Buurtcampus Oost heeft als doel Amsterdam-Oost duurzamer,
                 inclusiever en gezonder te maken. Plant Swap Amsterdam zorgt
                 ervoor dat plantenliefhebbers elkaar ontmoeten in de
@@ -152,7 +152,7 @@ function HomePage() {
                 gezondheid en meer sociale connectie, is PlantSwap Amsterdam een
                 plek van sociale ontmoeting, waar mensen samen leren over
                 planten.
-              </div>
+              </article>
             </div>
           </section>
         </main>

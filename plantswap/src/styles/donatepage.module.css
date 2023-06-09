@@ -25,7 +25,7 @@
   z-index: -1;
   margin-top: -2rem;
 }
-.container section {
+.article {
   width: 400px;
   height: 350px;
   background-color: var(--blue);
@@ -119,7 +119,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  color: var(--blue);
   gap: 0.5rem;
   align-self: center;
   color: var(--blue);
@@ -147,7 +147,7 @@
     width: 300px;
   }
 
-  .container section {
+  .container article {
     width: 300px;
     align-self: center;
   }
@@ -168,7 +168,7 @@
     height: 100%;
   }
 
-  .container section {
+  .container article {
     align-self: center;
   }
 }

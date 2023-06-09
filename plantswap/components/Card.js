@@ -5,11 +5,11 @@ function Card(props) {
     <div>
       <h3 className={classes.header}>{props.title}</h3>
       <div className={classes.card}>
-        <div
+        <article
           className={classes.cardFront}
           style={{ backgroundImage: `url(${props.img})` }}
-        ></div>
-        <div className={classes.cardBack}>{props.children}</div>
+        ></article>
+        <article className={classes.cardBack}>{props.children}</article>
       </div>
     </div>
   );

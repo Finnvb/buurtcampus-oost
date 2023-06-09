@@ -4,7 +4,10 @@ import Image from "next/image";
 function SectionItem(props) {
   return (
     <>
-      <div style={{ height: `${props.height}` }} className={classes.container}>
+      <article
+        style={{ height: `${props.height}` }}
+        className={classes.container}
+      >
         <h3>{props.title}</h3>
         <p>{props.children}</p>
 
@@ -20,7 +23,7 @@ function SectionItem(props) {
             {props.linkTitle}
           </Link>
         </div>
-      </div>
+      </article>
     </>
   );
 }

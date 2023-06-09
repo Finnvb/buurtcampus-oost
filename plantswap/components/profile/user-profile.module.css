@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.profile h1 {
+.profileHeader {
   text-align: center;
   color: var(--blue);
   margin: 2.5rem 0;

@@ -59,9 +59,9 @@ function AuthForm() {
   }
 
   return (
-    <section className={classes.auth}>
-      <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-      <form onSubmit={submitHandler}>
+    <>
+      <form className={classes.auth} onSubmit={submitHandler}>
+        <h1>{isLogin ? "Login" : "Sign Up"}</h1>
         <div className={classes.control}>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" required ref={emailInputRef} />
@@ -86,7 +86,7 @@ function AuthForm() {
           </button>
         </div>
       </form>
-    </section>
+    </>
   );
 }
 
