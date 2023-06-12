@@ -1,6 +1,6 @@
 // import ProfileForm from "./profile-form";
 import classes from "./user-profile.module.css";
-import ProfileForm from "./profile-form";
+// import ProfileForm from "./profile-form";
 
 import { useSession, getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -47,7 +47,7 @@ function UserProfile() {
     <section className={classes.profile}>
       <h1 className={classes.profileHeader}>Your User Profile </h1>
 
-      <ProfileForm />
+      {/* <ProfileForm /> */}
     </section>
   );
 }

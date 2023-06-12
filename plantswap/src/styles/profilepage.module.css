@@ -74,3 +74,68 @@
   color: var(--blue);
   font-size: 1rem;
 }
+
+.container div h3 {
+  color: var(--blue);
+}
+
+.plantContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin-bottom: 3rem;
+  height: 100%;
+  width: 80vw;
+}
+.plantImg {
+  width: 250px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.plantItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.plantName {
+  text-align: center;
+  text-decoration: none;
+  background: rgba(33, 77, 18, 0.6);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0 0px 10px 10px;
+  color: var(--white);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favoritesBtn {
+  position: absolute;
+  top: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  right: 0;
+  padding: 0.2rem;
+}
+
+.category {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  text-decoration: none;
+  background: rgba(33, 77, 18, 0.6);
+  color: var(--white);
+  border-radius: 10px 0 10px 0;
+}

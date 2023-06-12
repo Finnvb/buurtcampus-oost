@@ -1,31 +1,29 @@
 import { verifyPassword } from "lib/auth";
 import { connectToDatabase } from "lib/db";
 import NextAuth from "next-auth";
-// import Providers from "next-auth/providers";
 import CredentialsProvider from "next-auth/providers/credentials";
+
 export default NextAuth({
   secret: process.env.AUTH_SECRET,
   session: {
     jwt: true,
   },
-
   providers: [
     CredentialsProvider({
       name: "Credentials",
-
       credentials: {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         const client = await connectToDatabase();
-
         const usersCollection = client.db().collection("users");
 
         const user = await usersCollection.findOne({
           email: credentials.email,
         });
 
+        console.log(user);
         if (!user) {
           client.close();
           throw new Error("No user found");
@@ -40,8 +38,16 @@ export default NextAuth({
           client.close();
           throw new Error("Could not log you in");
         }
+
         client.close();
-        return { email: user.email };
+
+        const { email, password, favorites } = user;
+        console.log(user);
+        return {
+          email,
+          password,
+          favorites: favorites || [],
+        };
       },
     }),
   ],

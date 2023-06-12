@@ -5,7 +5,10 @@ import SuccesState from "components/SuccesState";
 import { useState } from "react";
 import Image from "next/image";
 import { sendRuilForm } from "lib/api";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { getSession } from "next-auth/react";
+
+import { useSession, signIn } from "next-auth/react";
 
 const initValues = {
   naam: "",
@@ -17,9 +20,37 @@ const initValues = {
 const initState = { values: initValues };
 
 function PlantDetailPage({ stekje }) {
+  const [errorMessage, setErrorMessage] = useState("");
+  const { data: session, status } = useSession();
+  const handleAddToFavorites = (e) => {
+    e.preventDefault();
+
+    const enteredFavorites = {
+      naam: stekje.naam,
+      foto: stekje.fotos[0].url,
+      categorie: stekje.categories[0].naam,
+      id: stekje.id,
+    };
+    const storedFavorites = localStorage.getItem("favorites");
+    let favorites = [];
+
+    if (storedFavorites) {
+      favorites = JSON.parse(storedFavorites);
+    }
+
+    const isFavoriteExists = favorites.some(
+      (favorite) => favorite.id === enteredFavorites.id
+    );
+
+    if (!isFavoriteExists) {
+      favorites.push(enteredFavorites);
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  };
   const animateFrom = { opacity: 0, y: -50 };
   const animateTo = { opacity: 1, y: 0 };
-
+  const [isLogin, setIsLogin] = useState(true);
   const [open, setOpen] = useState(false);
 
   const [state, setState] = useState(initState);
@@ -66,8 +97,23 @@ function PlantDetailPage({ stekje }) {
     <>
       <Layout title={stekje.naam}>
         <h1 className={classes.header}>{stekje.naam}</h1>
+
         <main className={classes.detailpageContainer}>
           <section className={classes.plantContent}>
+            {session && (
+              <form onSubmit={handleAddToFavorites}>
+                <button className={classes.favoritesBtn}>
+                  <p>Add to favorites</p>
+                  <Image
+                    className={classes.buurtcampusImg}
+                    src="/add.svg"
+                    alt="add"
+                    width={30}
+                    height={30}
+                  />
+                </button>
+              </form>
+            )}
             <Image
               className={classes.plantImgDetail}
               src={stekje.fotos[0].url}
