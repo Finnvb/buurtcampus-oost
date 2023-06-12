@@ -68,6 +68,7 @@
   align-items: center;
   gap: 2rem;
   margin: 3rem 0;
+  position: relative;
 }
 
 .paragraph {
@@ -85,6 +86,7 @@
   flex-direction: column;
   gap: 2rem;
   align-self: flex-start;
+  position: relative;
 }
 
 .plantContent div p {
@@ -221,6 +223,28 @@
   color: var(--white);
 }
 
+.plantContent form {
+  margin-bottom: 3rem;
+}
+.favoritesBtn {
+  background-color: var(--blue);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 10rem;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
 @media (max-width: 40rem) {
   .paragraph {
     width: 20rem;
@@ -243,5 +267,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .favoritesBtn {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 }

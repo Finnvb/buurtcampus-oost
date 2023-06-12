@@ -16,6 +16,7 @@
   position: fixed;
   animation: fadeInAnimation ease-in 1s;
   text-align: center;
+  z-index: 99;
 }
 
 @keyframes fadeInAnimation {

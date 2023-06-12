@@ -5,8 +5,9 @@ import SuccesState from "components/SuccesState";
 import { useState } from "react";
 import Image from "next/image";
 import { sendRuilForm } from "lib/api";
-import { delay, motion } from "framer-motion";
-
+import { motion } from "framer-motion";
+import { getSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 const initValues = {
   naam: "",
   email: "",
@@ -19,15 +20,48 @@ const initState = { values: initValues };
 function PlantDetailPage({ stekje }) {
   const animateFrom = { opacity: 0, y: -50 };
   const animateTo = { opacity: 1, y: 0 };
-
+  const { data: session, status } = useSession();
   const [open, setOpen] = useState(false);
 
   const [state, setState] = useState(initState);
 
   const [succes, formSucces] = useState(false);
-
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const { values } = state;
   values.geselecteerdePlant = stekje.naam;
+
+  const handleAddToFavorites = (e) => {
+    e.preventDefault();
+
+    const enteredFavorites = {
+      naam: stekje.naam,
+      foto: stekje.fotos[0].url,
+      categorie: stekje.categories[0].naam,
+      id: stekje.id,
+    };
+    const storedFavorites = localStorage.getItem("favorites");
+    let favorites = [];
+
+    if (storedFavorites) {
+      favorites = JSON.parse(storedFavorites);
+    }
+
+    const isFavoriteExists = favorites.some(
+      (favorite) => favorite.id === enteredFavorites.id
+    );
+
+    if (!isFavoriteExists) {
+      favorites.push(enteredFavorites);
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+
+      setShowSuccessMessage(true);
+
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+    }
+  };
   const handleChange = ({ target }) =>
     setState((prev) => ({
       ...prev,
@@ -68,6 +102,23 @@ function PlantDetailPage({ stekje }) {
         <h1 className={classes.header}>{stekje.naam}</h1>
         <main className={classes.detailpageContainer}>
           <section className={classes.plantContent}>
+            {session && (
+              <form onSubmit={handleAddToFavorites}>
+                <button className={classes.favoritesBtn}>
+                  <p>Add to favorites</p>
+                  <Image
+                    className={classes.buurtcampusImg}
+                    src="/add.svg"
+                    alt="add"
+                    width={30}
+                    height={30}
+                  />
+                </button>
+              </form>
+            )}
+
+            {showSuccessMessage && <SuccesState message="Added to favorites" />}
+
             <Image
               className={classes.plantImgDetail}
               src={stekje.fotos[0].url}
