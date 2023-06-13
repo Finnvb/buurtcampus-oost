@@ -63,7 +63,6 @@ function ProfilePage() {
   }, []);
   return (
     <Layout>
-      {/* <h1 className={classes.profileHeader}>Your User Profile </h1> */}
       <UserProfile />
       <section className={classes.container}>
         <div className={classes.themeContainer}>
