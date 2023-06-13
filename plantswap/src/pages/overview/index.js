@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 function OverviewPage({ stekjes }) {
   const [searchTerm, setSearchTerm] = useState("");
-
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(stekjes);
 
