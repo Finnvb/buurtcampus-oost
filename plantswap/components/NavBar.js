@@ -1,7 +1,6 @@
 import classes from "./NavBar.module.css";
 import Link from "next/link";
 import HamburgerMenu from "components/HamburgerMenu";
-import NavLink from "components/NavLink";
 import NavLinks from "./NavLinks";
 import Image from "next/image";
 function NavBar() {

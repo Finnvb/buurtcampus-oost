@@ -1,5 +1,4 @@
 import Layout from "components/layout";
-import UserProfile from "/components/profile/user-profile";
 import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import classes from "../styles/profilepage.module.css";
@@ -33,7 +32,8 @@ function ProfilePage() {
     }
   };
 
-  const toggleTheme = () => {
+  const toggleTheme = (e) => {
+    e.preventDefault();
     const theme = localStorage.getItem("theme");
     if (theme) {
       localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
@@ -62,23 +62,17 @@ function ProfilePage() {
   }, []);
   return (
     <Layout>
-      <UserProfile />
+      <h1 className={classes.profileHeader}>Your User Profile </h1>
 
       <section className={classes.container}>
         <div className={classes.themeContainer}>
           <h2>Theme</h2>
 
-          <input
-            className={classes.darkModeInput}
-            type="checkbox"
-            id="dark-mode"
+          <button
             onClick={toggleTheme}
-          ></input>
-
-          <label
             className={darkMode ? classes.darkModeEnabled : classes.darkMode}
             for="dark-mode"
-          ></label>
+          ></button>
           <p>{darkMode ? "Dark" : "Light"}</p>
         </div>
         <div>

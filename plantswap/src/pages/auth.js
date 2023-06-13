@@ -19,7 +19,6 @@ function AuthPage() {
   }, [router]);
 
   if (isLoading) {
-    // return <p>Loading...</p>;
   }
   return (
     <Layout>

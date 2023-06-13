@@ -170,14 +170,14 @@ function PlantDetailPage({ stekje }) {
             </div>
 
             <section className={classes.formContainer}>
-              <div
+              <button
                 onClick={() => {
                   setOpen(!open);
                 }}
                 className={classes.button}
               >
                 Ruilen
-              </div>
+              </button>
               {open && (
                 <motion.form
                   className={classes.form}

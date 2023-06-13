@@ -307,7 +307,6 @@ export default function DonatePage() {
                   <Image
                     src="/arrowLeft.svg"
                     alt="backArrow"
-                    // className={classes.plantImg}
                     width={30}
                     height={20}
                   />

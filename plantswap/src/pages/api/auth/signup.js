@@ -8,7 +8,7 @@ async function handler(req, res) {
   const data = req.body;
 
   const { email, password } = data;
-  // console.log(`bla ${data}`);
+
   if (
     !email ||
     !email.includes("@") ||

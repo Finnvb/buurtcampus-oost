@@ -61,10 +61,6 @@ p {
   color: white;
 }
 
-/* .dark button {
-  color: var(--white);
-} */
-
 .dark form {
   background-color: var(--darkGreen);
 }

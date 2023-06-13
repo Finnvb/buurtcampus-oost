@@ -57,7 +57,6 @@ const QUERY = gql`
 
 export async function getStaticProps() {
   const { workshops } = await graphcms.request(QUERY);
-  // console.log(workshops);
   return {
     props: {
       workshops,
