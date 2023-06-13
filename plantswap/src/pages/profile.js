@@ -5,6 +5,7 @@ import classes from "../styles/profilepage.module.css";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import UserProfile from "components/profile/user-profile";
 function ProfilePage() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -62,8 +63,8 @@ function ProfilePage() {
   }, []);
   return (
     <Layout>
-      <h1 className={classes.profileHeader}>Your User Profile </h1>
-
+      {/* <h1 className={classes.profileHeader}>Your User Profile </h1> */}
+      <UserProfile />
       <section className={classes.container}>
         <div className={classes.themeContainer}>
           <h2>Theme</h2>
