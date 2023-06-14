@@ -69,6 +69,8 @@ function ProfilePage() {
           <h2>Theme</h2>
 
           <button
+            id="favoritesButton"
+            aria-label="favoritesButton"
             onClick={toggleTheme}
             className={darkMode ? classes.darkModeEnabled : classes.darkMode}
             for="dark-mode"
