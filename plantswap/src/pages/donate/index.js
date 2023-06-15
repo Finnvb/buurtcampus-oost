@@ -195,7 +195,6 @@ export default function DonatePage() {
                   <Image
                     src="/arrowRight.svg"
                     alt="nextArrow"
-                    // className={classes.plantImg}
                     width={30}
                     height={20}
                   />

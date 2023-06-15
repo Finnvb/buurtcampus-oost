@@ -105,6 +105,7 @@
   cursor: pointer;
   width: inherit;
   border: none;
+  font-size: 1rem;
 }
 
 .formContainer {

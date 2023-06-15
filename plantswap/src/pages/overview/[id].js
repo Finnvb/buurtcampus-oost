@@ -248,9 +248,7 @@ function PlantDetailPage({ stekje }) {
                       ></input>
                     </div>
 
-                    <button className={classes.button} type="submit">
-                      Reserveren
-                    </button>
+                    <button type="submit">Reserveren</button>
                     {succes === true && (
                       <SuccesState message="Email verstuurd!" />
                     )}
