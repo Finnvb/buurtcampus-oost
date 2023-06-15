@@ -42,70 +42,71 @@ function OverviewPage({ stekjes }) {
     <>
       <Layout title="Plantswap overview">
         <h1 className={classes.header}>Alle stekjes</h1>
+        <p className={classes.introText}>
+          Overzicht van alle beschikbare stekjes
+        </p>
 
-        <div>
-          <div className={classes.filterContainer}>
-            <div className={classes.btnContainer}>
-              <p>Moeilijkheidsgraad</p>
-              <div>
-                {filters.map((category, idx) => (
-                  <button
-                    onClick={() => handleFilterButtonClick(category)}
-                    className={`${classes.categoryBtn} ${
-                      selectedFilters?.includes(category)
-                        ? `${classes.active}`
-                        : ""
-                    }`}
-                    key={`filters-${idx}`}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <input
-              className={classes.searchBar}
-              type="text"
-              placeholder="Search.."
-              onChange={(event) => {
-                setSearchTerm(event.target.value);
-              }}
-            ></input>
-          </div>
-
-          <ul className={classes.plantContainer}>
-            {filteredItems
-              .filter((item) => {
-                if (searchTerm == "") {
-                  return item;
-                } else if (
-                  item.naam.toLowerCase().includes(searchTerm.toLowerCase())
-                ) {
-                  return item;
-                }
-              })
-              .map((item, i) => (
-                <li key={`items-${i}`}>
-                  <Link className={classes.link} href={`overview/${item.id}`}>
-                    <div className={classes.plantItem}>
-                      <Image
-                        className={classes.plantImg}
-                        src={item.fotos[0].url}
-                        alt={item.naam}
-                        width="300"
-                        height="330"
-                      />
-
-                      <p className={classes.plantName}>{item.naam}</p>
-                      <p className={classes.category}>
-                        {item.categories[0].naam}
-                      </p>
-                    </div>
-                  </Link>
-                </li>
+        <div className={classes.filterContainer}>
+          <div className={classes.btnContainer}>
+            <p>Moeilijkheidsgraad</p>
+            <div>
+              {filters.map((category, idx) => (
+                <button
+                  onClick={() => handleFilterButtonClick(category)}
+                  className={`${classes.categoryBtn} ${
+                    selectedFilters?.includes(category)
+                      ? `${classes.active}`
+                      : ""
+                  }`}
+                  key={`filters-${idx}`}
+                >
+                  {category}
+                </button>
               ))}
-          </ul>
+            </div>
+          </div>
+          <input
+            className={classes.searchBar}
+            type="text"
+            placeholder="Search.."
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
+          ></input>
         </div>
+
+        <ul className={classes.plantContainer}>
+          {filteredItems
+            .filter((item) => {
+              if (searchTerm == "") {
+                return item;
+              } else if (
+                item.naam.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return item;
+              }
+            })
+            .map((item, i) => (
+              <li key={`items-${i}`}>
+                <Link className={classes.link} href={`overview/${item.id}`}>
+                  <div className={classes.plantItem}>
+                    <Image
+                      className={classes.plantImg}
+                      src={item.fotos[0].url}
+                      alt={item.naam}
+                      width="300"
+                      height="330"
+                    />
+
+                    <p className={classes.plantName}>{item.naam}</p>
+                    <p className={classes.category}>
+                      {item.categories[0].naam}
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+        </ul>
       </Layout>
     </>
   );

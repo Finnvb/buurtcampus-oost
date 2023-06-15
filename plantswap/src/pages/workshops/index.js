@@ -8,7 +8,7 @@ function WorkshopsPage({ workshops }) {
     <>
       <Layout title="Plantswap workshops">
         <h1 className={classes.header}>Alle workshops</h1>
-
+        <p className={classes.introText}>Overzicht van alle workshops</p>
         <ul className={classes.workshopContainer}>
           {workshops.map((workshop, i) => (
             <li key={i} className={classes.workshopItem}>

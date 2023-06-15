@@ -91,6 +91,12 @@
   font-size: 1rem;
 }
 
+.container div:last-child h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  /* color: var(--blue); */
+}
+
 .container div h3 {
   color: var(--blue);
 }

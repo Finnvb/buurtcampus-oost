@@ -33,7 +33,7 @@ body {
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: var(--blue);
 }
@@ -65,18 +65,18 @@ p {
   background-color: var(--darkGreen);
 }
 
-.dark input {
+/* .dark input {
   background-color: #051204;
   color: white;
   border: 1px solid var(--darkGreen);
-}
+} */
 
 .dark header {
   background-color: var(--darkGreen);
 }
 
 .dark select {
-  background-color: #051204;
+  background-color: var(--green);
   color: white;
 }
 
@@ -94,4 +94,39 @@ p {
 
 .dark article {
   background-color: var(--darkGreen);
+}
+
+.dark div p {
+  color: var(--white);
+}
+
+.dark div button {
+  color: var(--white);
+}
+
+.dark div input {
+  color: var(--white);
+  background: var(--green);
+}
+
+.dark form button {
+  border: none;
+  background-color: var(--lightGreen);
+  color: var(--white);
+}
+
+.dark article a {
+  border: none;
+  background-color: var(--lightGreen);
+  color: var(--white);
+}
+
+.dark section div h3 {
+  color: var(--white);
+}
+
+.dark section a {
+  border: none;
+
+  color: var(--white);
 }

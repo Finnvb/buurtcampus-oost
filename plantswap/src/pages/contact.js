@@ -11,6 +11,7 @@ function ContactPage() {
 
             <div className={classes.map}>
               <iframe
+                title="Oba Linnaeus"
                 width="100%"
                 height="100%"
                 id="gmap_canvas"
@@ -19,7 +20,6 @@ function ContactPage() {
                 marginheight="0"
                 marginwidth="0"
               ></iframe>
-              <a href="https://www.whatismyip-address.com"></a>
             </div>
           </section>
           <section className={classes.flexContainer}>

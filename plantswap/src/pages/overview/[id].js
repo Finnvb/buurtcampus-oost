@@ -193,6 +193,7 @@ function PlantDetailPage({ stekje }) {
                       value={stekje.naam}
                       name="geselecteerdePlant"
                       readOnly
+                      aria-label={stekje.naam}
                     ></input>
 
                     <div>
